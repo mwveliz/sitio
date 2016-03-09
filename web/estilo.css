@@ -23,7 +23,7 @@ body{
 }
 
 
-table.records_list{
+table{
    margin-left:auto; 
     margin-right:auto;
     color:white;
@@ -37,21 +37,21 @@ h1{
     font-size: 10;
     
 }
-table.records_list tbody tr:nth-child(odd) {
-   background-color: #269abc;
+table tbody tr:nth-child(odd) {
+   background-color: lightgreen;
    color: black;
    border: solid;
    border-color:white;
 }
 
-table.records_list tbody tr:nth-child(even) {
-   background-color: #afd9ee ;
+table tbody tr:nth-child(even) {
+   background-color: white;
 	color: black;
 }
 
-table.records_list th {
+table th {
     color: white;
-    background-color: #0000F0;
+    background-color: green;
     padding: 5px; 
     text-align: center;
 } 

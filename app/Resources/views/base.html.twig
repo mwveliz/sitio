@@ -28,32 +28,13 @@
                 <div class="navbar-collapse collapse" id="navbar-main">
   
                     <ul class="nav navbar-nav">
-                        <br>                        
-                        <li><a href="{{ path('informacion_index') }}">Informacion</a></li>
-                        <li><a href="{{ path('noticia_index') }}">Noticias</a></li>
-                        <li><a href="{{ path('noticiainterna_index') }}">Internas</a></li>
-                        <li><a href="{{ path('destacado_index') }}">Destacado</a></li>
-                        <li><a href="{{ path('documento_index') }}">Documentos</a></li>
-                        <li><a href="{{ path('video_index') }}">Banner</a></li>
-                        <li><a href="{{ path('video_index') }}">Enlace</a></li>
-                        <li><a href="{{ path('video_index') }}">Estadis</a></li>
-                        <li><a href="{{ path('video_index') }}">Reporte Clima</a></li>
-                        <li><a href="{{ path('posicion_index') }}">Posiciones</a></li>
-                        
-                        
+                      
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
                         <br>
-                        <li><a href="{{ path('usuario_index') }}">Usuario</a></li>
-                        <li>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <span class="glyphicon glyphicon-log-out text-success">                                   
-                                <!--a href="{#{ path('fos_user_security_logout') }#}" >
-                                    Cerrar Sesión
-                                </a-->
-                            </span>
-                        </li>
+                    
+                        
                     </ul>
 
                 </div>
@@ -61,7 +42,49 @@
         </div>
 
         <br><br><br><br><br><br>
+        <div class="row">
+  <div class="col-xs-12 col-md-2">
+      
+      
+  
+
+       <ul>
+        <br>                        
+                        <li><a href="{{ path('informacion_index') }}">Informacion</a></li>
+                        <li><a href="{{ path('noticia_index') }}">Noticias</a></li>
+                        <li><a href="{{ path('noticiainterna_index') }}">Internas</a></li>
+                        <li><a href="{{ path('destacado_index') }}">Destacado</a></li>
+                        <li><a href="{{ path('documento_index') }}">Documentos</a></li>
+                        <li><a href="{{ path('banner_index') }}">Banner</a></li>
+                        <li><a href="{{ path('enlace_index') }}">Enlace</a></li>
+                        <li><a href="{{ path('estadistica_index') }}">Estadistica</a></li>
+                        <li><a href="{{ path('reporteagricola_index') }}">Reporte Clima</a></li>
+                        <li><a href="{{ path('posicion_index') }}">Posiciones</a></li>
+                        
+
+                        <li><a href="{{ path('usuario_index') }}">Usuario</a></li>
+                        <li><a href="{{ path('menu_index') }}">Sistema-- Menu</a></li>
+                        <li><a href="{{ path('ente_index') }}">Entes</a></li>
+                        <li><a href="{{ path('imagen_index') }}">Imagenes</a></li>
+                        <li><a href="{{ path('tipodocumento_index') }}">Tipo de Documento</a></li>
+                        <li><a href="{{ path('usuario_index') }}">Grupos</a></li>
+                        
+                        
+                        
+                        <li>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="glyphicon glyphicon-log-out text-success">                                   
+                                <!--a href="{#{ path('fos_user_security_logout') }#}" >
+                                    Cerrar Sesión
+                                </a-->
+                            </span>
+                        </li> 
+        <ul>
+            
+            </div>
+  <div class="col-xs-6 col-md-6">
     {% block body %}{% endblock %}
-    
+    </div>                                  
+</div>    
 </body>
 </html>
