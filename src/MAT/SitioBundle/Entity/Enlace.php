@@ -6,74 +6,48 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Enlace
- *
- * @ORM\Table(name="enlace", indexes={@ORM\Index(name="IDX_8414B279FCF8192D", columns={"id_usuario"})})
- * @ORM\Entity
  */
 class Enlace
 {
     /**
      * @var string
-     *
-     * @ORM\Column(name="descripcion", type="string", nullable=true)
      */
     private $descripcion;
 
     /**
      * @var \DateTime
-     *
-     * @ORM\Column(name="fecha_hora", type="datetime", nullable=true)
      */
     private $fechaHora;
 
     /**
      * @var boolean
-     *
-     * @ORM\Column(name="visible", type="boolean", nullable=true)
      */
     private $visible;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="titulo", type="string", nullable=true)
      */
     private $titulo;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="ruta", type="string", nullable=true)
      */
     private $ruta;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="enlace", type="string", nullable=true)
      */
     private $enlace;
 
     /**
      * @var integer
-     *
-     * @ORM\Column(name="id", type="bigint")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="enlace_id_seq", allocationSize=1, initialValue=1)
      */
     private $id;
 
     /**
      * @var \MAT\SitioBundle\Entity\Usuario
-     *
-     * @ORM\ManyToOne(targetEntity="MAT\SitioBundle\Entity\Usuario")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_usuario", referencedColumnName="id")
-     * })
      */
     private $idUsuario;
-
 
 
     /**

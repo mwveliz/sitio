@@ -6,53 +6,33 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Informacion
- *
- * @ORM\Table(name="informacion", indexes={@ORM\Index(name="IDX_E4B777A5FCF8192D", columns={"id_usuario"})})
- * @ORM\Entity
  */
 class Informacion
 {
     /**
      * @var string
-     *
-     * @ORM\Column(name="descripcion", type="string", nullable=true)
      */
     private $descripcion;
 
     /**
      * @var \DateTime
-     *
-     * @ORM\Column(name="fecha_hora", type="datetime", nullable=true)
      */
     private $fechaHora;
 
     /**
      * @var boolean
-     *
-     * @ORM\Column(name="visible", type="boolean", nullable=true)
      */
     private $visible;
 
     /**
      * @var integer
-     *
-     * @ORM\Column(name="id", type="bigint")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="informacion_id_seq", allocationSize=1, initialValue=1)
      */
     private $id;
 
     /**
      * @var \MAT\SitioBundle\Entity\Usuario
-     *
-     * @ORM\ManyToOne(targetEntity="MAT\SitioBundle\Entity\Usuario")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_usuario", referencedColumnName="id")
-     * })
      */
     private $idUsuario;
-
 
 
     /**
@@ -155,5 +135,10 @@ class Informacion
     public function getIdUsuario()
     {
         return $this->idUsuario;
+    }
+    
+        public function __toString()
+    {
+        return $this->descripcion;
     }
 }

@@ -6,42 +6,23 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * ImagenNoticiainterna
- *
- * @ORM\Table(name="imagen_noticiainterna", indexes={@ORM\Index(name="IDX_F1C78C0DA52E675E", columns={"id_imagen"}), @ORM\Index(name="IDX_F1C78C0DE258A667", columns={"id_noticiainterna"})})
- * @ORM\Entity
  */
 class ImagenNoticiainterna
 {
     /**
      * @var integer
-     *
-     * @ORM\Column(name="id", type="bigint")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="imagen_noticiainterna_id_seq", allocationSize=1, initialValue=1)
      */
     private $id;
 
     /**
      * @var \MAT\SitioBundle\Entity\Imagen
-     *
-     * @ORM\ManyToOne(targetEntity="MAT\SitioBundle\Entity\Imagen")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_imagen", referencedColumnName="id")
-     * })
      */
     private $idImagen;
 
     /**
      * @var \MAT\SitioBundle\Entity\NoticiaInterna
-     *
-     * @ORM\ManyToOne(targetEntity="MAT\SitioBundle\Entity\NoticiaInterna")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_noticiainterna", referencedColumnName="id")
-     * })
      */
     private $idNoticiainterna;
-
 
 
     /**
@@ -99,4 +80,7 @@ class ImagenNoticiainterna
     {
         return $this->idNoticiainterna;
     }
+    
+    
+    
 }

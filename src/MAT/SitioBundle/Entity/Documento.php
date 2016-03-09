@@ -6,60 +6,38 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Documento
- *
- * @ORM\Table(name="documento", indexes={@ORM\Index(name="IDX_B6B12EC769B92C8F", columns={"id_tipo_documento"})})
- * @ORM\Entity
  */
 class Documento
 {
     /**
      * @var string
-     *
-     * @ORM\Column(name="descripcion", type="string", nullable=true)
      */
     private $descripcion;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="ruta", type="string", nullable=true)
      */
     private $ruta;
 
     /**
      * @var boolean
-     *
-     * @ORM\Column(name="visible", type="boolean", nullable=true)
      */
     private $visible;
 
     /**
      * @var \DateTime
-     *
-     * @ORM\Column(name="fecha_hora", type="datetime", nullable=true)
      */
     private $fechaHora;
 
     /**
      * @var integer
-     *
-     * @ORM\Column(name="id", type="bigint")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="documento_id_seq", allocationSize=1, initialValue=1)
      */
     private $id;
 
     /**
      * @var \MAT\SitioBundle\Entity\TipoDocumento
-     *
-     * @ORM\ManyToOne(targetEntity="MAT\SitioBundle\Entity\TipoDocumento")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_tipo_documento", referencedColumnName="id")
-     * })
      */
     private $idTipoDocumento;
-
 
 
     /**
