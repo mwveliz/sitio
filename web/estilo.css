@@ -1,0 +1,59 @@
+body{
+   background-color: white;
+   text-align: center;
+   }    
+
+
+.navbar-default{
+    background: rgba(179,220,237,1);
+	background: -moz-linear-gradient(top, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 50%, rgba(188,224,238,1) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(179,220,237,1)), color-stop(50%, rgba(41,184,229,1)), color-stop(100%, rgba(188,224,238,1)));
+	background: -webkit-linear-gradient(top, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 50%, rgba(188,224,238,1) 100%);
+	background: -o-linear-gradient(top, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 50%, rgba(188,224,238,1) 100%);
+	background: -ms-linear-gradient(top, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 50%, rgba(188,224,238,1) 100%);
+	background: linear-gradient(to bottom, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 50%, rgba(188,224,238,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3dced', endColorstr='#bce0ee', GradientType=0 );
+}
+
+
+.navbar .nav li a{
+    font-size:  18px;
+    font-family:  "Sans-Serif";
+    color:white;
+}
+
+
+table.records_list{
+   margin-left:auto; 
+    margin-right:auto;
+    color:white;
+    width: 66%;
+ 
+}    
+
+h1{
+    color: black;
+    font-family: "Times New Roman";
+    font-size: 10;
+    
+}
+table.records_list tbody tr:nth-child(odd) {
+   background-color: #269abc;
+   color: black;
+   border: solid;
+   border-color:white;
+}
+
+table.records_list tbody tr:nth-child(even) {
+   background-color: #afd9ee ;
+	color: black;
+}
+
+table.records_list th {
+    color: white;
+    background-color: #0000F0;
+    padding: 5px; 
+    text-align: center;
+} 
+
+
