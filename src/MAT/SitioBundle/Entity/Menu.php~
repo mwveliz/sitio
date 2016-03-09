@@ -1,0 +1,54 @@
+<?php
+
+namespace MAT\SitioBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Menu
+ *
+ * @ORM\Table(name="menu")
+ * @ORM\Entity
+ */
+class Menu
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="string", nullable=true)
+     */
+    private $descripcion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="posicion", type="string", nullable=true)
+     */
+    private $posicion;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="visible", type="boolean", nullable=true)
+     */
+    private $visible;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="enlace", type="string", nullable=true)
+     */
+    private $enlace;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="bigint")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="menu_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+
+}

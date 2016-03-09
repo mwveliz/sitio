@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Posicion</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Posnoticia</th>
+                <td>{{ posicion.posNoticia }}</td>
+            </tr>
+            <tr>
+                <th>Posnoticiainterna</th>
+                <td>{{ posicion.posNoticiainterna }}</td>
+            </tr>
+            <tr>
+                <th>Posdestacado</th>
+                <td>{{ posicion.posDestacado }}</td>
+            </tr>
+            <tr>
+                <th>Posvideo</th>
+                <td>{{ posicion.posVideo }}</td>
+            </tr>
+            <tr>
+                <th>Posestadistica</th>
+                <td>{{ posicion.posEstadistica }}</td>
+            </tr>
+            <tr>
+                <th>Posenlace</th>
+                <td>{{ posicion.posEnlace }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ posicion.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('posicion_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('posicion_edit', { 'id': posicion.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

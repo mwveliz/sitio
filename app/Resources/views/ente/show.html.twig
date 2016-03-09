@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Ente</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Descripcion</th>
+                <td>{{ ente.descripcion }}</td>
+            </tr>
+            <tr>
+                <th>Enlace</th>
+                <td>{{ ente.enlace }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ ente.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('ente_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('ente_edit', { 'id': ente.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

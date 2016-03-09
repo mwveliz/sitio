@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Posicion list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Posnoticia</th>
+                <th>Posnoticiainterna</th>
+                <th>Posdestacado</th>
+                <th>Posvideo</th>
+                <th>Posestadistica</th>
+                <th>Posenlace</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for posicion in posicions %}
+            <tr>
+                <td><a href="{{ path('posicion_show', { 'id': posicion.id }) }}">{{ posicion.posNoticia }}</a></td>
+                <td>{{ posicion.posNoticiainterna }}</td>
+                <td>{{ posicion.posDestacado }}</td>
+                <td>{{ posicion.posVideo }}</td>
+                <td>{{ posicion.posEstadistica }}</td>
+                <td>{{ posicion.posEnlace }}</td>
+                <td>{{ posicion.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('posicion_show', { 'id': posicion.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('posicion_edit', { 'id': posicion.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('posicion_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

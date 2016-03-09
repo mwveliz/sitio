@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MAT\SitioBundle\Entity\Banner" table="banner">
+    <indexes>
+      <index name="IDX_6F9DB8E7FCF8192D" columns="id_usuario"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="rutaBanner" type="string" column="ruta_banner" nullable="true"/>
+    <field name="rutaFooter" type="string" column="ruta_footer" nullable="true"/>
+    <field name="rutaLogo" type="string" column="ruta_logo" nullable="true"/>
+    <field name="rutaSplash" type="string" column="ruta_splash" nullable="true"/>
+    <field name="fechaHora" type="datetime" column="fecha_hora" nullable="true"/>
+    <field name="visibleSplash" type="boolean" column="visible_splash" nullable="true"/>
+    <many-to-one field="idUsuario" target-entity="Usuario">
+      <join-columns>
+        <join-column name="id_usuario" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

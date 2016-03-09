@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>NoticiaInterna list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Descripcion</th>
+                <th>Fechahora</th>
+                <th>Visible</th>
+                <th>Titulo</th>
+                <th>Antetitulo</th>
+                <th>Fuente</th>
+                <th>Enlace</th>
+                <th>Autor</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for noticiaInterna in noticiaInternas %}
+            <tr>
+                <td><a href="{{ path('noticiainterna_show', { 'id': noticiaInterna.id }) }}">{{ noticiaInterna.descripcion }}</a></td>
+                <td>{% if noticiaInterna.fechaHora %}{{ noticiaInterna.fechaHora|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if noticiaInterna.visible %}Yes{% else %}No{% endif %}</td>
+                <td>{{ noticiaInterna.titulo }}</td>
+                <td>{{ noticiaInterna.antetitulo }}</td>
+                <td>{{ noticiaInterna.fuente }}</td>
+                <td>{{ noticiaInterna.enlace }}</td>
+                <td>{{ noticiaInterna.autor }}</td>
+                <td>{{ noticiaInterna.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('noticiainterna_show', { 'id': noticiaInterna.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('noticiainterna_edit', { 'id': noticiaInterna.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('noticiainterna_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

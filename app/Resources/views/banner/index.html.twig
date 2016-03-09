@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Banner list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Rutabanner</th>
+                <th>Rutafooter</th>
+                <th>Rutalogo</th>
+                <th>Rutasplash</th>
+                <th>Fechahora</th>
+                <th>Visiblesplash</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for banner in banners %}
+            <tr>
+                <td><a href="{{ path('banner_show', { 'id': banner.id }) }}">{{ banner.rutaBanner }}</a></td>
+                <td>{{ banner.rutaFooter }}</td>
+                <td>{{ banner.rutaLogo }}</td>
+                <td>{{ banner.rutaSplash }}</td>
+                <td>{% if banner.fechaHora %}{{ banner.fechaHora|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if banner.visibleSplash %}Yes{% else %}No{% endif %}</td>
+                <td>{{ banner.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('banner_show', { 'id': banner.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('banner_edit', { 'id': banner.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('banner_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

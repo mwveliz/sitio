@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Usuario list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Dni</th>
+                <th>Nacionalidad</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Telefono</th>
+                <th>Telefonosecundario</th>
+                <th>Username</th>
+                <th>Usernamecanonical</th>
+                <th>Email</th>
+                <th>Emailcanonical</th>
+                <th>Enabled</th>
+                <th>Salt</th>
+                <th>Password</th>
+                <th>Lastlogin</th>
+                <th>Locked</th>
+                <th>Expired</th>
+                <th>Expiresat</th>
+                <th>Confirmationtoken</th>
+                <th>Passwordrequestedat</th>
+                <th>Roles</th>
+                <th>Credentialsexpired</th>
+                <th>Credentialsexpireat</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for usuario in usuarios %}
+            <tr>
+                <td><a href="{{ path('usuario_show', { 'id': usuario.id }) }}">{{ usuario.dni }}</a></td>
+                <td>{{ usuario.nacionalidad }}</td>
+                <td>{{ usuario.nombre }}</td>
+                <td>{{ usuario.apellido }}</td>
+                <td>{{ usuario.telefono }}</td>
+                <td>{{ usuario.telefonoSecundario }}</td>
+                <td>{{ usuario.username }}</td>
+                <td>{{ usuario.usernameCanonical }}</td>
+                <td>{{ usuario.email }}</td>
+                <td>{{ usuario.emailCanonical }}</td>
+                <td>{% if usuario.enabled %}Yes{% else %}No{% endif %}</td>
+                <td>{{ usuario.salt }}</td>
+                <td>{{ usuario.password }}</td>
+                <td>{% if usuario.lastLogin %}{{ usuario.lastLogin|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if usuario.locked %}Yes{% else %}No{% endif %}</td>
+                <td>{% if usuario.expired %}Yes{% else %}No{% endif %}</td>
+                <td>{% if usuario.expiresAt %}{{ usuario.expiresAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ usuario.confirmationToken }}</td>
+                <td>{% if usuario.passwordRequestedAt %}{{ usuario.passwordRequestedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if usuario.roles %}{{ usuario.roles|join(', ') }}{% endif %}</td>
+                <td>{% if usuario.credentialsExpired %}Yes{% else %}No{% endif %}</td>
+                <td>{% if usuario.credentialsExpireAt %}{{ usuario.credentialsExpireAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ usuario.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('usuario_show', { 'id': usuario.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('usuario_edit', { 'id': usuario.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('usuario_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

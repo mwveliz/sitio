@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MAT\SitioBundle\Entity\ImagenDestacado" table="imagen_destacado">
+    <indexes>
+      <index name="IDX_E250B822A52E675E" columns="id_imagen"/>
+      <index name="IDX_E250B822AAC326F2" columns="id_destacado"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <many-to-one field="idImagen" target-entity="Imagen">
+      <join-columns>
+        <join-column name="id_imagen" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idDestacado" target-entity="Destacado">
+      <join-columns>
+        <join-column name="id_destacado" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

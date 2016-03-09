@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>ReporteAgricola list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Descripcion</th>
+                <th>Fechahora</th>
+                <th>Visible</th>
+                <th>Titulo</th>
+                <th>Ruta</th>
+                <th>Enlace</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reporteAgricola in reporteAgricolas %}
+            <tr>
+                <td><a href="{{ path('reporteagricola_show', { 'id': reporteAgricola.id }) }}">{{ reporteAgricola.descripcion }}</a></td>
+                <td>{% if reporteAgricola.fechaHora %}{{ reporteAgricola.fechaHora|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if reporteAgricola.visible %}Yes{% else %}No{% endif %}</td>
+                <td>{{ reporteAgricola.titulo }}</td>
+                <td>{{ reporteAgricola.ruta }}</td>
+                <td>{{ reporteAgricola.enlace }}</td>
+                <td>{{ reporteAgricola.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('reporteagricola_show', { 'id': reporteAgricola.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('reporteagricola_edit', { 'id': reporteAgricola.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('reporteagricola_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

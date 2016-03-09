@@ -1,0 +1,78 @@
+<?php
+
+namespace MAT\SitioBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Banner
+ *
+ * @ORM\Table(name="banner", indexes={@ORM\Index(name="IDX_6F9DB8E7FCF8192D", columns={"id_usuario"})})
+ * @ORM\Entity
+ */
+class Banner
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ruta_banner", type="string", nullable=true)
+     */
+    private $rutaBanner;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ruta_footer", type="string", nullable=true)
+     */
+    private $rutaFooter;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ruta_logo", type="string", nullable=true)
+     */
+    private $rutaLogo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ruta_splash", type="string", nullable=true)
+     */
+    private $rutaSplash;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha_hora", type="datetime", nullable=true)
+     */
+    private $fechaHora;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="visible_splash", type="boolean", nullable=true)
+     */
+    private $visibleSplash;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="bigint")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="banner_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var \MAT\SitioBundle\Entity\Usuario
+     *
+     * @ORM\ManyToOne(targetEntity="MAT\SitioBundle\Entity\Usuario")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_usuario", referencedColumnName="id")
+     * })
+     */
+    private $idUsuario;
+
+
+}

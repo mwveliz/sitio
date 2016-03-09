@@ -1,3 +1,91 @@
+sitio_ente:
+    resource: "@SitioBundle/Controller/EnteController.php"
+    type:     annotation
+
+sitio_documento:
+    resource: "@SitioBundle/Controller/DocumentoController.php"
+    type:     annotation
+
+sitio_noticia_interna:
+    resource: "@SitioBundle/Controller/NoticiaInternaController.php"
+    type:     annotation
+
+sitio_usuario:
+    resource: "@SitioBundle/Controller/UsuarioController.php"
+    type:     annotation
+
+sitio_informacion:
+    resource: "@SitioBundle/Controller/InformacionController.php"
+    type:     annotation
+
+sitio_reporte_agricola:
+    resource: "@SitioBundle/Controller/ReporteAgricolaController.php"
+    type:     annotation
+
+sitio_imagen_noticia:
+    resource: "@SitioBundle/Controller/ImagenNoticiaController.php"
+    type:     annotation
+
+sitio_imagen_destacado:
+    resource: "@SitioBundle/Controller/ImagenDestacadoController.php"
+    type:     annotation
+
+sitio_enlace:
+    resource: "@SitioBundle/Controller/EnlaceController.php"
+    type:     annotation
+
+sitio_banner:
+    resource: "@SitioBundle/Controller/BannerController.php"
+    type:     annotation
+
+sitio_imagen:
+    resource: "@SitioBundle/Controller/ImagenController.php"
+    type:     annotation
+
+sitio_destacado:
+    resource: "@SitioBundle/Controller/DestacadoController.php"
+    type:     annotation
+
+sitio_imagen_informacion:
+    resource: "@SitioBundle/Controller/ImagenInformacionController.php"
+    type:     annotation
+
+sitio_noticia:
+    resource: "@SitioBundle/Controller/NoticiaController.php"
+    type:     annotation
+
+sitio_video:
+    resource: "@SitioBundle/Controller/VideoController.php"
+    type:     annotation
+
+sitio_posicion:
+    resource: "@SitioBundle/Controller/PosicionController.php"
+    type:     annotation
+
+sitio_menu:
+    resource: "@SitioBundle/Controller/MenuController.php"
+    type:     annotation
+
+sitio_fos_group:
+    resource: "@SitioBundle/Controller/FosGroupController.php"
+    type:     annotation
+
+sitio_estadistica:
+    resource: "@SitioBundle/Controller/EstadisticaController.php"
+    type:     annotation
+
+sitio_tipo_documento:
+    resource: "@SitioBundle/Controller/TipoDocumentoController.php"
+    type:     annotation
+
+sitio_imagen_noticiainterna:
+    resource: "@SitioBundle/Controller/ImagenNoticiainternaController.php"
+    type:     annotation
+
+sitio:
+    resource: "@SitioBundle/Resources/config/routing.yml"
+    prefix:   /
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation

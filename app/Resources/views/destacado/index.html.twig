@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Destacado list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Descripcion</th>
+                <th>Fechahora</th>
+                <th>Visible</th>
+                <th>Titulo</th>
+                <th>Antetitulo</th>
+                <th>Fuente</th>
+                <th>Enlace</th>
+                <th>Autor</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for destacado in destacados %}
+            <tr>
+                <td><a href="{{ path('destacado_show', { 'id': destacado.id }) }}">{{ destacado.descripcion }}</a></td>
+                <td>{% if destacado.fechaHora %}{{ destacado.fechaHora|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if destacado.visible %}Yes{% else %}No{% endif %}</td>
+                <td>{{ destacado.titulo }}</td>
+                <td>{{ destacado.antetitulo }}</td>
+                <td>{{ destacado.fuente }}</td>
+                <td>{{ destacado.enlace }}</td>
+                <td>{{ destacado.autor }}</td>
+                <td>{{ destacado.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('destacado_show', { 'id': destacado.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('destacado_edit', { 'id': destacado.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('destacado_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

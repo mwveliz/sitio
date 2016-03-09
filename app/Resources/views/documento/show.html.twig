@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Documento</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Descripcion</th>
+                <td>{{ documento.descripcion }}</td>
+            </tr>
+            <tr>
+                <th>Ruta</th>
+                <td>{{ documento.ruta }}</td>
+            </tr>
+            <tr>
+                <th>Visible</th>
+                <td>{% if documento.visible %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Fechahora</th>
+                <td>{% if documento.fechaHora %}{{ documento.fechaHora|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ documento.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('documento_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('documento_edit', { 'id': documento.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

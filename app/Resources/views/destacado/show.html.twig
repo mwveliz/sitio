@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Destacado</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Descripcion</th>
+                <td>{{ destacado.descripcion }}</td>
+            </tr>
+            <tr>
+                <th>Fechahora</th>
+                <td>{% if destacado.fechaHora %}{{ destacado.fechaHora|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Visible</th>
+                <td>{% if destacado.visible %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Titulo</th>
+                <td>{{ destacado.titulo }}</td>
+            </tr>
+            <tr>
+                <th>Antetitulo</th>
+                <td>{{ destacado.antetitulo }}</td>
+            </tr>
+            <tr>
+                <th>Fuente</th>
+                <td>{{ destacado.fuente }}</td>
+            </tr>
+            <tr>
+                <th>Enlace</th>
+                <td>{{ destacado.enlace }}</td>
+            </tr>
+            <tr>
+                <th>Autor</th>
+                <td>{{ destacado.autor }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ destacado.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('destacado_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('destacado_edit', { 'id': destacado.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MAT\SitioBundle\Entity\Posicion" table="posicion">
+    <indexes>
+      <index name="IDX_8BE28BD3EFBDF6E6" columns="id_noticia"/>
+      <index name="IDX_8BE28BD3E258A667" columns="id_noticiainterna"/>
+      <index name="IDX_8BE28BD3AAC326F2" columns="id_destacado"/>
+      <index name="IDX_8BE28BD392429B1C" columns="id_video"/>
+      <index name="IDX_8BE28BD3C72848B3" columns="id_estadistica"/>
+      <index name="IDX_8BE28BD3A2230794" columns="id_enlace"/>
+    </indexes>
+    <id name="id" type="bigint" column="id">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="posNoticia" type="bigint" column="pos_noticia" nullable="true"/>
+    <field name="posNoticiainterna" type="bigint" column="pos_noticiainterna" nullable="true"/>
+    <field name="posDestacado" type="bigint" column="pos_destacado" nullable="true"/>
+    <field name="posVideo" type="bigint" column="pos_video" nullable="true"/>
+    <field name="posEstadistica" type="bigint" column="pos_estadistica" nullable="true"/>
+    <field name="posEnlace" type="bigint" column="pos_enlace" nullable="true"/>
+    <many-to-one field="idNoticia" target-entity="Noticia">
+      <join-columns>
+        <join-column name="id_noticia" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idNoticiainterna" target-entity="ImagenNoticiainterna">
+      <join-columns>
+        <join-column name="id_noticiainterna" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idDestacado" target-entity="Destacado">
+      <join-columns>
+        <join-column name="id_destacado" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idVideo" target-entity="Video">
+      <join-columns>
+        <join-column name="id_video" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idEstadistica" target-entity="Estadistica">
+      <join-columns>
+        <join-column name="id_estadistica" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idEnlace" target-entity="Enlace">
+      <join-columns>
+        <join-column name="id_enlace" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

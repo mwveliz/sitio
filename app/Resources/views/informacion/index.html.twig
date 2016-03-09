@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Informacion list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Descripcion</th>
+                <th>Fechahora</th>
+                <th>Visible</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for informacion in informacions %}
+            <tr>
+                <td><a href="{{ path('informacion_show', { 'id': informacion.id }) }}">{{ informacion.descripcion }}</a></td>
+                <td>{% if informacion.fechaHora %}{{ informacion.fechaHora|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if informacion.visible %}Yes{% else %}No{% endif %}</td>
+                <td>{{ informacion.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('informacion_show', { 'id': informacion.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('informacion_edit', { 'id': informacion.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('informacion_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

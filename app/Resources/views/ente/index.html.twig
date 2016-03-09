@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Ente list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Descripcion</th>
+                <th>Enlace</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ente in entes %}
+            <tr>
+                <td><a href="{{ path('ente_show', { 'id': ente.id }) }}">{{ ente.descripcion }}</a></td>
+                <td>{{ ente.enlace }}</td>
+                <td>{{ ente.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('ente_show', { 'id': ente.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('ente_edit', { 'id': ente.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('ente_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

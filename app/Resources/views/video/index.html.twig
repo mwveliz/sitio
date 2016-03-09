@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Video list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Descripcion</th>
+                <th>Fechahora</th>
+                <th>Visible</th>
+                <th>Titulo</th>
+                <th>Autor</th>
+                <th>Ruta</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for video in videos %}
+            <tr>
+                <td><a href="{{ path('video_show', { 'id': video.id }) }}">{{ video.descripcion }}</a></td>
+                <td>{% if video.fechaHora %}{{ video.fechaHora|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if video.visible %}Yes{% else %}No{% endif %}</td>
+                <td>{{ video.titulo }}</td>
+                <td>{{ video.autor }}</td>
+                <td>{{ video.ruta }}</td>
+                <td>{{ video.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('video_show', { 'id': video.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('video_edit', { 'id': video.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('video_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Estadistica</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Descripcion</th>
+                <td>{{ estadistica.descripcion }}</td>
+            </tr>
+            <tr>
+                <th>Fechahora</th>
+                <td>{% if estadistica.fechaHora %}{{ estadistica.fechaHora|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Visible</th>
+                <td>{% if estadistica.visible %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Titulo</th>
+                <td>{{ estadistica.titulo }}</td>
+            </tr>
+            <tr>
+                <th>Autor</th>
+                <td>{{ estadistica.autor }}</td>
+            </tr>
+            <tr>
+                <th>Ruta</th>
+                <td>{{ estadistica.ruta }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ estadistica.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('estadistica_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('estadistica_edit', { 'id': estadistica.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

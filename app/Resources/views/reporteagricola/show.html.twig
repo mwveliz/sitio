@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>ReporteAgricola</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Descripcion</th>
+                <td>{{ reporteAgricola.descripcion }}</td>
+            </tr>
+            <tr>
+                <th>Fechahora</th>
+                <td>{% if reporteAgricola.fechaHora %}{{ reporteAgricola.fechaHora|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Visible</th>
+                <td>{% if reporteAgricola.visible %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Titulo</th>
+                <td>{{ reporteAgricola.titulo }}</td>
+            </tr>
+            <tr>
+                <th>Ruta</th>
+                <td>{{ reporteAgricola.ruta }}</td>
+            </tr>
+            <tr>
+                <th>Enlace</th>
+                <td>{{ reporteAgricola.enlace }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ reporteAgricola.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('reporteagricola_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('reporteagricola_edit', { 'id': reporteAgricola.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>NoticiaInterna</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Descripcion</th>
+                <td>{{ noticiaInterna.descripcion }}</td>
+            </tr>
+            <tr>
+                <th>Fechahora</th>
+                <td>{% if noticiaInterna.fechaHora %}{{ noticiaInterna.fechaHora|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Visible</th>
+                <td>{% if noticiaInterna.visible %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Titulo</th>
+                <td>{{ noticiaInterna.titulo }}</td>
+            </tr>
+            <tr>
+                <th>Antetitulo</th>
+                <td>{{ noticiaInterna.antetitulo }}</td>
+            </tr>
+            <tr>
+                <th>Fuente</th>
+                <td>{{ noticiaInterna.fuente }}</td>
+            </tr>
+            <tr>
+                <th>Enlace</th>
+                <td>{{ noticiaInterna.enlace }}</td>
+            </tr>
+            <tr>
+                <th>Autor</th>
+                <td>{{ noticiaInterna.autor }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ noticiaInterna.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('noticiainterna_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('noticiainterna_edit', { 'id': noticiaInterna.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

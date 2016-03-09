@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Imagen list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Descripcion</th>
+                <th>Fechahora</th>
+                <th>Visible</th>
+                <th>Ruta</th>
+                <th>Autor</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for imagen in imagens %}
+            <tr>
+                <td><a href="{{ path('imagen_show', { 'id': imagen.id }) }}">{{ imagen.descripcion }}</a></td>
+                <td>{% if imagen.fechaHora %}{{ imagen.fechaHora|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if imagen.visible %}Yes{% else %}No{% endif %}</td>
+                <td>{{ imagen.ruta }}</td>
+                <td>{{ imagen.autor }}</td>
+                <td>{{ imagen.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('imagen_show', { 'id': imagen.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('imagen_edit', { 'id': imagen.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('imagen_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}
