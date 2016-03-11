@@ -1,43 +1,60 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Informacion list</h1>
+    <h1>Información</h1>
 
-    <table>
+    <table class="lista">
         <thead>
             <tr>
-                <th>Descripcion</th>
-                <th>Fechahora</th>
+                <th>Descripción</th>
+                <th>Fecha - hora</th>
                 <th>Visible</th>
-                <th>Id</th>
-                <th>Actions</th>
+                <th>Ver</th>
+                <th>Editar</th>
             </tr>
         </thead>
         <tbody>
         {% for informacion in informacions %}
             <tr>
-                <td><a href="{{ path('informacion_show', { 'id': informacion.id }) }}">{{ informacion.descripcion }}</a></td>
+                <td>>{{ informacion.descripcion }}</td>
                 <td>{% if informacion.fechaHora %}{{ informacion.fechaHora|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if informacion.visible %}Yes{% else %}No{% endif %}</td>
-                <td>{{ informacion.id }}</td>
+                <td>{% if informacion.visible %}Sí{% else %}No{% endif %}</td>
+                 <td>   
+                     <a href="{{ path('informacion_show', { 'id': informacion.id }) }}"
+                        <span class="glyphicon glyphicon-search text-success">                                   
+                            </span>
+                        </a>
+                </td>                    
+                 <td>   
+                                 
+                     <a href="{{ path('informacion_edit', { 'id': informacion.id }) }}">
+                        <span class="glyphicon glyphicon-pencil text-success">                                   
+                            </span>
+                        </a>
+                </td>                    
+                
+                
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('informacion_show', { 'id': informacion.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('informacion_edit', { 'id': informacion.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                
+                    
                 </td>
+                
+                
+                
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
     <ul>
-        <li>
-            <a href="{{ path('informacion_new') }}">Create a new entry</a>
+        
+        
+        
+        <li> <a href="{{ path('informacion_new') }}">
+                        <span align="right" class="glyphicon glyphicon-plus-sign text-success">                                   
+                            </span>
+                        </a>
+                        
         </li>
     </ul>
 {% endblock %}

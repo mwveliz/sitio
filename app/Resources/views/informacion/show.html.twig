@@ -3,14 +3,14 @@
 {% block body %}
     <h1>Informacion</h1>
 
-    <table>
+    <table class="record_properties">
         <tbody>
             <tr>
                 <th>Descripcion</th>
                 <td>{{ informacion.descripcion }}</td>
             </tr>
             <tr>
-                <th>Fechahora</th>
+                <th>Fecha -hora</th>
                 <td>{% if informacion.fechaHora %}{{ informacion.fechaHora|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
