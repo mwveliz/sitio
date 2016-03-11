@@ -1,60 +1,70 @@
 {% extends 'base.html.twig' %}
+{% block stylesheets_extra %} 
+      
+{% endblock %}
+
 
 {% block body %}
     <h1>Información</h1>
-
-    <table class="lista">
-        <thead>
-            <tr>
-                <th>Descripción</th>
-                <th>Fecha - hora</th>
-                <th>Visible</th>
-                <th>Ver</th>
-                <th>Editar</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for informacion in informacions %}
-            <tr>
-                <td>>{{ informacion.descripcion }}</td>
-                <td>{% if informacion.fechaHora %}{{ informacion.fechaHora|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if informacion.visible %}Sí{% else %}No{% endif %}</td>
-                 <td>   
-                     <a href="{{ path('informacion_show', { 'id': informacion.id }) }}"
-                        <span class="glyphicon glyphicon-search text-success">                                   
-                            </span>
-                        </a>
-                </td>                    
-                 <td>   
-                                 
-                     <a href="{{ path('informacion_edit', { 'id': informacion.id }) }}">
-                        <span class="glyphicon glyphicon-pencil text-success">                                   
-                            </span>
-                        </a>
-                </td>                    
-                
-                
-                <td>
-                
-                    
-                </td>
-                
-                
-                
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        
-        
-        
-        <li> <a href="{{ path('informacion_new') }}">
-                        <span align="right" class="glyphicon glyphicon-plus-sign text-success">                                   
-                            </span>
-                        </a>
-                        
-        </li>
-    </ul>
+ <!-- BEGIN CONTAINER -->
+        <div class="page-container">
+            <!-- BEGIN CONTENT -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a class="btn btn-success" href="{{ path('informacion_new') }}" ><span>Agregar</span></a>
+                            <br><br>                            
+                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                            <div class="portlet light bordered">
+                                <div class="portlet-title">
+                                    <div class="caption font-green">
+                                        <i class="icon-settings font-green"></i>
+                                        <span class="caption-subject bold uppercase"></span>
+                                    </div>
+                                    <div class="tools"> </div>
+                                </div>
+                                <div class="portlet-body">
+                                    <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_2">
+                                        <thead>
+                                            <tr>
+                                                <th class="all" width="10%">Detalle</th>
+                                                <th class="all">Descripcion</th>                                               
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for Informacion in informacions%}
+                                            <tr>
+                                                <td>
+                                                    <center>
+                                                        <a href="{{ path('informacion_show', { 'id': Informacion.id }) }}">
+                                                            <i class="glyphicon glyphicon-search"></i>
+                                                        </a>       
+                                                    </center>
+                                                </td>
+                                                <td>{{ Informacion.descripcion }}</td>                                                
+                                            </tr>
+                                        {% endfor %} 
+                                        </tbody>                                        
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- END EXAMPLE TABLE PORTLET-->
+                        </div>
+                        <div class="col-md-6" id="show">
+                           
+                        </div>     
+                    </div>
+                                    
+                                        
+            <!-- END CONTENT BODY -->
+            
+        </div>                                       
+        <!-- END CONTAINER -->
+     
 {% endblock %}
+
+{% block javascripts_extra %} 
+
+
+ <script>    
+ {% endblock %}
+    

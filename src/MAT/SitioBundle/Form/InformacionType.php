@@ -15,7 +15,9 @@ class InformacionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('descripcion')
+              ->add('descripcion', 'textarea', array(
+                 'attr' => array('class' => 'form-control rows="5" ')
+             )) 
             ->add('fechaHora', 'datetime')
             ->add('visible')
             ->add('idUsuario')
