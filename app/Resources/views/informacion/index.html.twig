@@ -27,6 +27,7 @@
                                         <thead>
                                             <tr>
                                                 <th class="all" width="10%">Detalle</th>
+                                                <th class="all" width="10%">Editar</th>
                                                 <th class="all">Descripcion</th>                                               
                                             </tr>
                                         </thead>
@@ -40,6 +41,14 @@
                                                         </a>       
                                                     </center>
                                                 </td>
+                                                    <td>
+                                                    <center>
+                                                        <a href="{{ path('informacion_edit', { 'id': Informacion.id }) }}">
+                                                            <i class="glyphicon glyphicon-pencil"></i>
+                                                        </a>       
+                                                    </center>
+                                                </td>
+                                            
                                                 <td>{{ Informacion.descripcion }}</td>                                                
                                             </tr>
                                         {% endfor %} 

@@ -4,20 +4,12 @@
     <h1>Informacion</h1>
 
     
-    <div align="right">
-            <a href="{{ path('informacion_edit', { 'id': informacion.id }) }}">Editar
-        <i class="glyphicon glyphicon-pencil"></i>
-        </a>       
-         
-    {{ form_start(delete_form) }}
-                <input type="submit" class="btn btn-danger"   value="Eliminar">
-                    <!--input type="submit" value="Eliminar"-->
-                    </button>
-            {{ form_end(delete_form) }}    
-        
+            
+             <div align="right">
+      <a href="{{ path('informacion_index', { 'id': informacion.id }) }}">Volver
+        <span class="glyphicon glyphicon-arrow-left"></span>
+        </a>   
         </div>
-            <br><br>
-    
     <div class="page-container">
             
                     <div class="row">
@@ -54,21 +46,24 @@
                                 </div> 
                             <!-- END EXAMPLE TABLE PORTLET-->
                         </div>
-                        <div class="col-md-6" id="show">
-                           
-                        </div>     
+                      
                     </div>
             <!-- END CONTENT BODY -->
         </div>       
     
-    
-    
-        <a href="{{ path('informacion_index', { 'id': informacion.id }) }}">Volver
-        <span class="glyphicon glyphicon-arrow-left"></span>
-        </a>       
+     
+            <div align="right">
+         
+    {{ form_start(delete_form) }}
+               <a href="{{ path('informacion_edit', { 'id': informacion.id }) }}" class="btn btn-info" role="button">Editar</a>
 
-    
+                <input type="submit" class="btn btn-danger"   value="Eliminar">
+                    <!--input type="submit" value="Eliminar"-->
+                    </button>
+            {{ form_end(delete_form) }}    
         
+        </div>
+
     
                                 
             
