@@ -16,11 +16,21 @@ class InformacionType extends AbstractType
     {
         $builder
               ->add('descripcion', 'textarea', array(
-                 'attr' => array('class' => 'form-control rows="5" ')
+                 'attr' => array('class' => 'tinymce ','data-theme' => 'advanced')
              )) 
-            ->add('fechaHora', 'datetime')
-            ->add('visible')
-            ->add('idUsuario')
+            ->add('fechaHora', 'date', array(
+                        'widget' => 'single_text',
+                        'format' => 'dd-MM-yyyy',
+                        'attr' => array(
+                        'class' => 'form-control input-inline datepicker',
+                        'data-provide' => 'datepicker',
+                        'data-date-format' => 'dd-mm-yyyy',
+                        'language' => 'es'
+                            
+                        )))
+
+            ->add('visible','checkbox')
+            //->add('idUsuario', 'choice', array('attr' => array('class' => 'form-control')))
         ;
     }
     
