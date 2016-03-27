@@ -47,14 +47,6 @@ sitio_reporte_agricola:
     resource: "@SitioBundle/Controller/ReporteAgricolaController.php"
     type:     annotation
 
-sitio_imagen_noticia:
-    resource: "@SitioBundle/Controller/ImagenNoticiaController.php"
-    type:     annotation
-
-sitio_imagen_destacado:
-    resource: "@SitioBundle/Controller/ImagenDestacadoController.php"
-    type:     annotation
-
 sitio_enlace:
     resource: "@SitioBundle/Controller/EnlaceController.php"
     type:     annotation
@@ -69,10 +61,6 @@ sitio_imagen:
 
 sitio_destacado:
     resource: "@SitioBundle/Controller/DestacadoController.php"
-    type:     annotation
-
-sitio_imagen_informacion:
-    resource: "@SitioBundle/Controller/ImagenInformacionController.php"
     type:     annotation
 
 sitio_noticia:
@@ -101,10 +89,6 @@ sitio_estadistica:
 
 sitio_tipo_documento:
     resource: "@SitioBundle/Controller/TipoDocumentoController.php"
-    type:     annotation
-
-sitio_imagen_noticiainterna:
-    resource: "@SitioBundle/Controller/ImagenNoticiainternaController.php"
     type:     annotation
 
 sitio:

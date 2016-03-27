@@ -1,14 +1,26 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Editar Registro de Informacion</h1>
-
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <button type="button" class="btn btn-primary"  id="clear">Limpiar</button>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12	col-md-12 col-lg-12 ">
+            <!-- BEGIN SAMPLE FORM PORTLET-->
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                </div>
+                <div class="portlet-body form">
+                    {{ form_start(edit_form) }}{{ tinymce_init() }}
+                    {{ form_widget(edit_form) }}
+                    <button type="button" class="btn btn-primary"  id="clear">Limpiar</button>
                     <a href="{{ path('informacion_index') }}" class="btn btn-danger" role="button">Cancelar</a>
                     <button type="submit" class="btn btn-success ">Enviar</button>
-    {{ form_end(edit_form) }}
-
+                    {{ form_end(edit_form) }}
+                    <br>
+                    <div class="form-actions">
+                    </div>
+                </div>
+            </div>
+            <!-- END SAMPLE FORM PORTLET-->
+        </div>
+    </div>
   
 {% endblock %}

@@ -1,3 +1,4 @@
+
 sitio_homepage:
     path:     /
     defaults: { _controller: SitioBundle:Default:index }

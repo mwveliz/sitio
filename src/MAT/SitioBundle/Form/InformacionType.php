@@ -16,7 +16,7 @@ class InformacionType extends AbstractType
     {
         $builder
               ->add('descripcion', 'textarea', array(
-                 'attr' => array('class' => 'tinymce ','data-theme' => 'advanced')
+                 'attr' => array('class' => 'tinymce','data-theme' => 'advanced')
              )) 
             ->add('fechaHora', 'date', array(
                         'widget' => 'single_text',
