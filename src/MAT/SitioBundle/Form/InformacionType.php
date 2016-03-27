@@ -14,6 +14,7 @@ class InformacionType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        
         $builder
               ->add('descripcion', 'textarea', array(
                  'attr' => array('class' => 'tinymce','data-theme' => 'advanced')
@@ -25,10 +26,13 @@ class InformacionType extends AbstractType
                         'class' => 'form-control input-inline datepicker',
                         'data-provide' => 'datepicker',
                         'data-date-format' => 'dd-mm-yyyy',
-                        'language' => 'es'
+                        'locale' => 'es'
                             
                         )))
-
+               ->add('idUsuario','hidden',array(
+                 //'data' => '5'
+                   //default value debe ser el usuario logeado
+             ))            
             ->add('visible','checkbox')
             //->add('idUsuario', 'choice', array('attr' => array('class' => 'form-control')))
         ;

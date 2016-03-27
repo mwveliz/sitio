@@ -1,0 +1,22 @@
+{#{% extends ":inicio.html.twig" %}#}
+
+
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Registrar nuevo Usuario </h1>
+
+    {{ form(form) }}
+                                <div class="form-group">
+                                    <!-- Button -->                                        
+                                      <div class="col-md-3">
+                                            <input type="submit" id="_submit" class="btn btn-info btn btn-lg btn-block" name="_back" value="{{ 'Volver'|trans }}" />
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="submit" id="_submit" class="btn btn-success btn btn-lg btn-block" name="_submit" value="{{ 'Registrar'|trans }}" />
+                                        </div>
+                                </div>
+        <ul class="record_actions">
+   
+</ul>
+{% endblock %}

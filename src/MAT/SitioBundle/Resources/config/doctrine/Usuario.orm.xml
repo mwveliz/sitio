@@ -13,22 +13,6 @@
     <field name="apellido" type="string" column="apellido" nullable="true"/>
     <field name="telefono" type="string" column="telefono" nullable="true"/>
     <field name="telefonoSecundario" type="string" column="telefono_secundario" nullable="true"/>
-    <field name="username" type="string" column="username" length="255" nullable="false"/>
-    <field name="usernameCanonical" type="string" column="username_canonical" length="255" nullable="false"/>
-    <field name="email" type="string" column="email" length="255" nullable="false"/>
-    <field name="emailCanonical" type="string" column="email_canonical" length="255" nullable="false"/>
-    <field name="enabled" type="boolean" column="enabled" nullable="false"/>
-    <field name="salt" type="string" column="salt" length="255" nullable="false"/>
-    <field name="password" type="string" column="password" length="255" nullable="false"/>
-    <field name="lastLogin" type="datetime" column="last_login" nullable="true"/>
-    <field name="locked" type="boolean" column="locked" nullable="false"/>
-    <field name="expired" type="boolean" column="expired" nullable="false"/>
-    <field name="expiresAt" type="datetime" column="expires_at" nullable="true"/>
-    <field name="confirmationToken" type="string" column="confirmation_token" length="255" nullable="true"/>
-    <field name="passwordRequestedAt" type="datetime" column="password_requested_at" nullable="true"/>
-    <field name="roles" type="array" column="roles" nullable="false"/>
-    <field name="credentialsExpired" type="boolean" column="credentials_expired" nullable="false"/>
-    <field name="credentialsExpireAt" type="datetime" column="credentials_expire_at" nullable="true"/>
     <many-to-many field="group" target-entity="FosGroup" inversed-by="user">
       <join-table name="fos_user_user_group">
         <join-columns>

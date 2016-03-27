@@ -43,14 +43,12 @@ class InformacionController extends Controller
     {
         $informacion = new Informacion();
         $form = $this->createForm('MAT\SitioBundle\Form\InformacionType', $informacion);
+        
+        
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            //chequeadno las fotos enviadas
-            
-            
-            //var_dump($_POST['informacion']);
-            //die();
+          
             
             $em = $this->getDoctrine()->getManager();
             $em->persist($informacion);
