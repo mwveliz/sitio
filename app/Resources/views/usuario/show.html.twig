@@ -29,70 +29,7 @@
                 <th>Telefonosecundario</th>
                 <td>{{ usuario.telefonoSecundario }}</td>
             </tr>
-            <tr>
-                <th>Username</th>
-                <td>{{ usuario.username }}</td>
-            </tr>
-            <tr>
-                <th>Usernamecanonical</th>
-                <td>{{ usuario.usernameCanonical }}</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>{{ usuario.email }}</td>
-            </tr>
-            <tr>
-                <th>Emailcanonical</th>
-                <td>{{ usuario.emailCanonical }}</td>
-            </tr>
-            <tr>
-                <th>Enabled</th>
-                <td>{% if usuario.enabled %}Yes{% else %}No{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Salt</th>
-                <td>{{ usuario.salt }}</td>
-            </tr>
-            <tr>
-                <th>Password</th>
-                <td>{{ usuario.password }}</td>
-            </tr>
-            <tr>
-                <th>Lastlogin</th>
-                <td>{% if usuario.lastLogin %}{{ usuario.lastLogin|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Locked</th>
-                <td>{% if usuario.locked %}Yes{% else %}No{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Expired</th>
-                <td>{% if usuario.expired %}Yes{% else %}No{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Expiresat</th>
-                <td>{% if usuario.expiresAt %}{{ usuario.expiresAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Confirmationtoken</th>
-                <td>{{ usuario.confirmationToken }}</td>
-            </tr>
-            <tr>
-                <th>Passwordrequestedat</th>
-                <td>{% if usuario.passwordRequestedAt %}{{ usuario.passwordRequestedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Roles</th>
-                <td>{% if usuario.roles %}{{ usuario.roles|join(', ') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Credentialsexpired</th>
-                <td>{% if usuario.credentialsExpired %}Yes{% else %}No{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Credentialsexpireat</th>
-                <td>{% if usuario.credentialsExpireAt %}{{ usuario.credentialsExpireAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
+           
             <tr>
                 <th>Id</th>
                 <td>{{ usuario.id }}</td>

@@ -8,33 +8,37 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class InformacionType extends AbstractType
 {
+    
     /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        
         $builder
               ->add('descripcion', 'textarea', array(
                  'attr' => array('class' => 'tinymce','data-theme' => 'advanced')
              )) 
             ->add('fechaHora', 'date', array(
+                         'data' =>  new \DateTime(),
+                        'label' => 'Fecha ',
                         'widget' => 'single_text',
                         'format' => 'dd-MM-yyyy',
                         'attr' => array(
                         'class' => 'form-control input-inline datepicker',
                         'data-provide' => 'datepicker',
                         'data-date-format' => 'dd-mm-yyyy',
-                        'locale' => 'es'
-                            
+                        'locale' => 'es',
+                         
                         )))
                ->add('idUsuario','hidden',array(
-                 //'data' => '5'
-                   //default value debe ser el usuario logeado
+                  
              ))            
-            ->add('visible','checkbox')
-            //->add('idUsuario', 'choice', array('attr' => array('class' => 'form-control')))
+            ->add('visible','checkbox',array(
+                 'data' => true,
+                
+                ))
+            
         ;
     }
     

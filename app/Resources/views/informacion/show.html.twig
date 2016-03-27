@@ -26,7 +26,7 @@
                                     <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_2">
                                     <tr>
                                     <th>Descripcion</th>
-                                    <td>{{ informacion.descripcion }}</td>
+                                    <td>{{ informacion.descripcion | raw}}</td>
                                 </tr>
                                 <tr>
                                     <th>Fecha -hora</th>
@@ -34,7 +34,11 @@
                                 </tr>
                                 <tr>
                                     <th>Visible</th>
-                                    <td>{% if informacion.visible %}Yes{% else %}No{% endif %}</td>
+                                    <td>{% if informacion.visible %}Sí{% else %}No{% endif %}</td>
+                                </tr>
+                                 <tr>
+                                    <th>Usuario</th>
+                                    <td>{{ informacion.getidUsuario}}</td>
                                 </tr>
                                 <tr>
                                     <th>Id</th>

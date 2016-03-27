@@ -42,12 +42,18 @@ class InformacionController extends Controller
     public function newAction(Request $request)
     {
         $informacion = new Informacion();
+
         $form = $this->createForm('MAT\SitioBundle\Form\InformacionType', $informacion);
-        
-        
         $form->handleRequest($request);
 
+        
+        
         if ($form->isSubmitted() && $form->isValid()) {
+        /*agregar para que el usuario logueado sea el dueño de la noticia*/
+                $userId= $this->getUser()->getId();
+                $em = $this->getDoctrine()->getManager();
+                $form->getdata()->setIdUsuario( $id_usuario = $em->getReference('MAT\SitioBundle\Entity\Usuario', $userId));
+        // fin usuario logueado
           
             
             $em = $this->getDoctrine()->getManager();
@@ -71,6 +77,7 @@ class InformacionController extends Controller
      */
     public function showAction(Informacion $informacion)
     {
+        
         $deleteForm = $this->createDeleteForm($informacion);
 
         return $this->render('informacion/show.html.twig', array(
