@@ -1,53 +1,84 @@
+
 {% extends 'base.html.twig' %}
 
 {% block body %}
     <h1>Usuario</h1>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Dni</th>
-                <td>{{ usuario.dni }}</td>
-            </tr>
-            <tr>
-                <th>Nacionalidad</th>
-                <td>{{ usuario.nacionalidad }}</td>
-            </tr>
-            <tr>
-                <th>Nombre</th>
-                <td>{{ usuario.nombre }}</td>
-            </tr>
-            <tr>
-                <th>Apellido</th>
-                <td>{{ usuario.apellido }}</td>
-            </tr>
-            <tr>
-                <th>Telefono</th>
-                <td>{{ usuario.telefono }}</td>
-            </tr>
-            <tr>
-                <th>Telefonosecundario</th>
-                <td>{{ usuario.telefonoSecundario }}</td>
-            </tr>
-           
-            <tr>
-                <th>Id</th>
-                <td>{{ usuario.id }}</td>
-            </tr>
-        </tbody>
-    </table>
+    
+            
+             <div align="right">
+      <a href="{{ path('usuario_index', { 'id': usuario.id }) }}">Volver
+        <span class="glyphicon glyphicon-arrow-left"></span>
+        </a>   
+        </div>
+    <div class="page-container">
+            
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                            <div class="portlet light bordered">
+                                <div class="portlet-title">
+                                    <div class="caption font-green">
+                                        <i class="icon-settings font-green"></i>
+                                        <span class="caption-subject bold uppercase"></span>
+                                    </div>                                   
+                                </div>   
+                                <div class="portlet-body">
+                                    <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_2">
+                                    <tr>
+                                    <th>Cedula</th>
+                                    <td>{{ usuario.dni }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Nacionalidad</th>
+                                    <td>{{ usuario.nacionalidad }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <td>{{ usuario.nombre }}</td>
+                                </tr>
+                                 <tr>
+                                    <th>Apellido</th>
+                                    <td>{{ usuario.apellido}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Telefono</th>
+                                    <td>{{ usuario.telefono }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Telefono Secundario</th>
+                                    <td>{{ usuario.telefonoSecundario }}</td>
+                                </tr>
+                                <tr>
+                                    <th>id</th>
+                                    <td>{{ usuario.id }}</td>
+                                </tr>
+                                    </table>
+                                        
+                                </div>
+                                </div> 
+                            <!-- END EXAMPLE TABLE PORTLET-->
+                        </div>
+                      
+                    </div>
+            <!-- END CONTENT BODY -->
+        </div>       
+    
+     
+            <div align="right">
+         
+    {{ form_start(delete_form) }}
+               <a href="{{ path('usuario_edit', { 'id': usuario.id }) }}" class="btn btn-info" role="button">Editar</a>
 
-    <ul>
-        <li>
-            <a href="{{ path('usuario_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('usuario_edit', { 'id': usuario.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+                <input type="submit" class="btn btn-danger"   value="Eliminar">
+                    <!--input type="submit" value="Eliminar"-->
+                    </button>
+            {{ form_end(delete_form) }}    
+        
+        </div>
+
+    
+                                
+            
+        
 {% endblock %}

@@ -46,11 +46,23 @@ class EstadisticaController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($estadistica);
-            $em->flush();
+        	      /*agregar para que el usuario l
+                      * ogueado sea el dueño de la noticia*/
+           
+                $userId= $this->getUser()->getId();
+                $em = $this->getDoctrine()->getManager();
+                $form->getdata()->setIdUsuario( $id_usuario = $em->getReference('MAT\SitioBundle\Entity\Usuario', $userId));
+        // fin usuario logueado
+           //die(var_dump($_FILES));
+                        $temporal=$_FILES['estadistica']['tmp_name']['ruta'];
+                        $nombre_png=$_FILES['estadistica']['name']['ruta'];
+                        move_uploaded_file($temporal, $this->get('kernel')->getRootDir().'/../web/imagenes/'.$nombre_png);
+                        $em = $this->getDoctrine()->getManager();
+                        $estadistica->setRuta($nombre_png); //nombre original
+                        $em->persist($estadistica);
+                        $em->flush();
 
-            return $this->redirectToRoute('estadistica_show', array('id' => $estadistica->getId()));
+            return $this->redirectToRoute('estadistica_index', array('id' => $estadistica->getId()));
         }
 
         return $this->render('estadistica/new.html.twig', array(
@@ -88,11 +100,14 @@ class EstadisticaController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+            
+         
             $em = $this->getDoctrine()->getManager();
             $em->persist($estadistica);
             $em->flush();
+           
 
-            return $this->redirectToRoute('estadistica_edit', array('id' => $estadistica->getId()));
+            return $this->redirectToRoute('estadistica_index', array('id' => $estadistica->getId()));
         }
 
         return $this->render('estadistica/edit.html.twig', array(

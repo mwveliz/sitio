@@ -8,6 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class EstadisticaType extends AbstractType
 {
+    
     /**
      * @param FormBuilderInterface $builder
      * @param array $options
@@ -15,13 +16,33 @@ class EstadisticaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('descripcion')
-            ->add('fechaHora', 'datetime')
-            ->add('visible')
-            ->add('titulo')
-            ->add('autor')
-            ->add('ruta')
-            ->add('idUsuario')
+              ->add('descripcion', 'textarea', array(
+                 'attr' => array('class' =>  'advanced')
+             )) 
+            ->add('fechaHora', 'date', array(
+                         'data' =>  new \DateTime(),
+                        'label' => 'Fecha ',
+                        'widget' => 'single_text',
+                        'format' => 'dd-MM-yyyy',
+                        'attr' => array(
+                        'class' => 'form-control input-inline datepicker',
+                        'data-provide' => 'datepicker',
+                        'data-date-format' => 'dd-mm-yyyy',
+                        'locale' => 'es',
+                         
+                        )))
+                       
+            ->add('visible','checkbox',array(
+                 'data' => true,
+                
+                ))
+                 ->add('titulo')
+                 ->add('autor')
+                 ->add('ruta', 'file' , array( 'data_class' => null ))
+                 ->add('idUsuario')
+
+
+            
         ;
     }
     

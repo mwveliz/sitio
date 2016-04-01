@@ -9,6 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use MAT\SitioBundle\Entity\Video;
 use MAT\SitioBundle\Form\VideoType;
 
+
 /**
  * Video controller.
  *
@@ -46,11 +47,18 @@ class VideoController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($video);
-            $em->flush();
+             $userId= $this->getUser()->getId();
+             $em = $this->getDoctrine()->getManager();
+             $form->getdata()->setIdUsuario( $id_usuario = $em->getReference('MAT\SitioBundle\Entity\Usuario', $userId));
+                        $temporal=$_FILES['video']['tmp_name']['ruta'];
+                        $nombre_png=$_FILES['video']['name']['ruta'];
+                        move_uploaded_file($temporal, $this->get('kernel')->getRootDir().'/../web/imagenes/'.$nombre_png);
+                        $em = $this->getDoctrine()->getManager();
+                        $video->setRuta($nombre_png); //nombre original
+                        $em->persist($video);
+                        $em->flush();
 
-            return $this->redirectToRoute('video_show', array('id' => $video->getId()));
+            return $this->redirectToRoute('video_index', array('id' => $video->getId()));
         }
 
         return $this->render('video/new.html.twig', array(
@@ -92,7 +100,7 @@ class VideoController extends Controller
             $em->persist($video);
             $em->flush();
 
-            return $this->redirectToRoute('video_edit', array('id' => $video->getId()));
+            return $this->redirectToRoute('video_index', array('id' => $video->getId()));
         }
 
         return $this->render('video/edit.html.twig', array(

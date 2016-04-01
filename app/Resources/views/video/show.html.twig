@@ -1,11 +1,31 @@
+
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Video</h1>
+    <h1>Videos</h1>
 
-    <table>
-        <tbody>
-            <tr>
+    
+            
+             <div align="right">
+      <a href="{{ path('video_index', { 'id': video.id }) }}">Volver
+        <span class="glyphicon glyphicon-arrow-left"></span>
+        </a>   
+        </div>
+    <div class="page-container">
+            
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                            <div class="portlet light bordered">
+                                <div class="portlet-title">
+                                    <div class="caption font-green">
+                                        <i class="icon-settings font-green"></i>
+                                        <span class="caption-subject bold uppercase"></span>
+                                    </div>                                   
+                                </div>   
+                                <div class="portlet-body">
+                                    <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_2">
+                                   <tr>
                 <th>Descripcion</th>
                 <td>{{ video.descripcion }}</td>
             </tr>
@@ -33,20 +53,34 @@
                 <th>Id</th>
                 <td>{{ video.id }}</td>
             </tr>
-        </tbody>
-    </table>
+                                    </table>
+                                        
+                                </div>
+                                </div> 
+                            <!-- END EXAMPLE TABLE PORTLET-->
+                        </div>
+                      
+                    </div>
+            <!-- END CONTENT BODY -->
+        </div>       
+    
+     
+            <div align="right">
+         
+    {{ form_start(delete_form) }}
+               <a href="{{ path('video_edit', { 'id': video.id }) }}" class="btn btn-info" role="button">Editar</a>
 
-    <ul>
-        <li>
-            <a href="{{ path('video_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('video_edit', { 'id': video.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+                <input type="submit" class="btn btn-danger"   value="Eliminar">
+                    <!--input type="submit" value="Eliminar"-->
+                    </button>
+            {{ form_end(delete_form) }}    
+        
+        </div>
+
+    
+                                
+            
+        
 {% endblock %}
+
+
