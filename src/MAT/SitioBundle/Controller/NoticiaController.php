@@ -46,11 +46,19 @@ class NoticiaController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+			 /*agregar para que el usuario logueado sea el dueño de la noticia*/
+                $userId= $this->getUser()->getId();
+                $em = $this->getDoctrine()->getManager();
+                $form->getdata()->setIdUsuario( $id_usuario = $em->getReference('MAT\SitioBundle\Entity\Usuario', $userId));
+        // fin usuario logueado
+          
+			
+			
             $em = $this->getDoctrine()->getManager();
             $em->persist($noticium);
             $em->flush();
 
-            return $this->redirectToRoute('noticia_show', array('id' => $noticium->getId()));
+             return $this->redirectToRoute('noticia_index');
         }
 
         return $this->render('noticia/new.html.twig', array(
@@ -65,12 +73,12 @@ class NoticiaController extends Controller
      * @Route("/{id}", name="noticia_show")
      * @Method("GET")
      */
-    public function showAction(Noticia $noticium)
+    public function showAction(Noticia $noticia)
     {
-        $deleteForm = $this->createDeleteForm($noticium);
+        $deleteForm = $this->createDeleteForm($noticia);
 
         return $this->render('noticia/show.html.twig', array(
-            'noticium' => $noticium,
+            'noticia' => $noticia,
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -88,11 +96,16 @@ class NoticiaController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+        	 
+		
+        // fin usuario logueado$id_usuario
+			
+			
             $em = $this->getDoctrine()->getManager();
             $em->persist($noticium);
             $em->flush();
 
-            return $this->redirectToRoute('noticia_edit', array('id' => $noticium->getId()));
+            return $this->redirectToRoute('noticia_index');
         }
 
         return $this->render('noticia/edit.html.twig', array(
