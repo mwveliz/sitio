@@ -41,16 +41,28 @@ class ImagenController extends Controller
      */
     public function newAction(Request $request)
     {
-        $imagen = new Imagen();
-        $form = $this->createForm('MAT\SitioBundle\Form\ImagenType', $imagen);
-        $form->handleRequest($request);
+        
+	   $imagen = new Imagen();
+	
+
+     	
+       $form = $this->createForm('MAT\SitioBundle\Form\ImagenType', $imagen);
+		
+		
+		$form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
+        	
+			//die(var_dump($_FILES));
+			$temporal=$_FILES['imagen']['tmp_name']['ruta'];
+			$nombre_png=$_FILES['imagen']['name']['ruta'];
+			move_uploaded_file($temporal, $this->get('kernel')->getRootDir().'/../web/imagenes/'.$nombre_png);
+		    $em = $this->getDoctrine()->getManager();
+		    $imagen->setRuta($nombre_png); //nombre original
             $em->persist($imagen);
             $em->flush();
 
-            return $this->redirectToRoute('imagen_show', array('id' => $imagen->getId()));
+            return $this->redirectToRoute('imagen_index');
         }
 
         return $this->render('imagen/new.html.twig', array(
@@ -92,7 +104,7 @@ class ImagenController extends Controller
             $em->persist($imagen);
             $em->flush();
 
-            return $this->redirectToRoute('imagen_edit', array('id' => $imagen->getId()));
+             return $this->redirectToRoute('imagen_index');
         }
 
         return $this->render('imagen/edit.html.twig', array(

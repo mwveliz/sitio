@@ -1,47 +1,77 @@
 {% extends 'base.html.twig' %}
+{% block stylesheets_extra %} 
+      
+{% endblock %}
+
 
 {% block body %}
-    <h1>Imagen list</h1>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Descripcion</th>
-                <th>Fechahora</th>
-                <th>Visible</th>
-                <th>Ruta</th>
-                <th>Autor</th>
-                <th>Id</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for imagen in imagens %}
-            <tr>
-                <td><a href="{{ path('imagen_show', { 'id': imagen.id }) }}">{{ imagen.descripcion }}</a></td>
-                <td>{% if imagen.fechaHora %}{{ imagen.fechaHora|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if imagen.visible %}Yes{% else %}No{% endif %}</td>
-                <td>{{ imagen.ruta }}</td>
-                <td>{{ imagen.autor }}</td>
-                <td>{{ imagen.id }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('imagen_show', { 'id': imagen.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('imagen_edit', { 'id': imagen.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('imagen_new') }}">Create a new entry</a>
-        </li>
-    </ul>
+    <h1>Imagen</h1>
+ <!-- BEGIN CONTAINER -->
+        <div class="page-container">
+            <!-- BEGIN CONTENT -->
+                    <div class="row">
+                       <div class="col-xs-12 col-sm-12	col-md-12 col-lg-12 ">
+                            <a class="btn btn-success" href="{{ path('imagen_new') }}" ><span>Agregar</span></a>
+                            <br><br>                            
+                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                            <div class="portlet light bordered">
+                                <div class="portlet-title">
+                                    <div class="caption font-green">
+                                        <i class="icon-settings font-green"></i>
+                                        <span class="caption-subject bold uppercase"></span>
+                                    </div>
+                                    <div class="tools"> </div>
+                                </div>
+                                <div class="portlet-body">
+                                    <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_2">
+                                        <thead>
+                                            <tr>
+                                                <th class="all" width="10%">Detalle</th>
+                                                <th class="all" width="10%">Editar</th>
+                                                <th class="all">Descripcion</th>                                               
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for imagen in imagens%}
+                                            <tr>
+                                                <td>
+                                                    <center>
+                                                        <a href="{{ path('imagen_show', { 'id': imagen.id }) }}">
+                                                            <i class="glyphicon glyphicon-search"></i>
+                                                        </a>       
+                                                    </center>
+                                                </td>
+                                                    <td>
+                                                    <center>
+                                                        <a href="{{ path('imagen_edit', { 'id': imagen.id }) }}">
+                                                            <i class="glyphicon glyphicon-pencil"></i>
+                                                        </a>       
+                                                    </center>
+                                                </td>
+                                            
+                                                <td>{{ imagen.descripcion | raw }}</td>                                                
+                                            </tr>
+                                        {% endfor %} 
+                                        </tbody>                                        
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- END EXAMPLE TABLE PORTLET-->
+                        </div>
+                        
+                    </div>
+                                    
+                                        
+            <!-- END CONTENT BODY -->
+            
+        </div>                                       
+        <!-- END CONTAINER -->
+     
 {% endblock %}
+
+{% block javascripts_extra %} 
+
+
+ <script>    
+ {% endblock %}
+    

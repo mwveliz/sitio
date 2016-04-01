@@ -50,7 +50,7 @@ class TipoDocumentoController extends Controller
             $em->persist($tipoDocumento);
             $em->flush();
 
-            return $this->redirectToRoute('tipodocumento_show', array('id' => $tipoDocumento->getId()));
+            return $this->redirectToRoute('tipodocumento_index', array('id' => $tipoDocumento->getId()));
         }
 
         return $this->render('tipodocumento/new.html.twig', array(
@@ -92,7 +92,7 @@ class TipoDocumentoController extends Controller
             $em->persist($tipoDocumento);
             $em->flush();
 
-            return $this->redirectToRoute('tipodocumento_edit', array('id' => $tipoDocumento->getId()));
+            return $this->redirectToRoute('tipodocumento_index', array('id' => $tipoDocumento->getId()));
         }
 
         return $this->render('tipodocumento/edit.html.twig', array(
