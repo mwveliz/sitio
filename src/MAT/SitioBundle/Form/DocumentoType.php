@@ -15,11 +15,37 @@ class DocumentoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('descripcion')
+        ->add('descripcion', 'textarea', array(
+                 'attr' => array('class' => 	'advanced')
+             )) 
+			->add('ruta', 'file', array('data_class'=>null)) 
+            ->add('fechaHora', 'date', array(
+                         'data' =>  new \DateTime(),
+                        'label' => 'Fecha ',
+                        'widget' => 'single_text',
+                        'format' => 'dd-MM-yyyy',
+                        'attr' => array(
+                        'class' => 'form-control input-inline datepicker',
+                        'data-provide' => 'datepicker',
+                        'data-date-format' => 'dd-mm-yyyy',
+                        'locale' => 'es',
+                         
+                        )))
+			/*->add('idTipoDocumento',array(
+				'label' => 'TipoDocumento',))*/	
+				
+              /* ->add('idUsuario','hidden',array(
+                  
+             )) */           
+            ->add('visible','checkbox',array(
+                 'data' => true,
+                
+                ))
+           /* ->add('descripcion')
             ->add('ruta')
             ->add('visible')
             ->add('fechaHora', 'datetime')
-            ->add('idTipoDocumento')
+            ->add('idTipoDocumento')*/
         ;
     }
     

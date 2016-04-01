@@ -46,11 +46,19 @@ class DocumentoController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+        	//die(var_dump($_FILES));
+                        $temporal=$_FILES['documento']['tmp_name']['ruta'];
+                        $nombre_odt=$_FILES['documento']['name']['ruta'];
+                        move_uploaded_file($temporal, $this->get('kernel')->getRootDir().'/../web/imagenes/'.$nombre_odt);
+                    $em = $this->getDoctrine()->getManager();
+                    $documento->setRuta($nombre_odt); //nombre original
+            $em->persist($documento);
+            $em->flush();
             $em = $this->getDoctrine()->getManager();
             $em->persist($documento);
             $em->flush();
 
-            return $this->redirectToRoute('documento_show', array('id' => $documento->getId()));
+            return $this->redirectToRoute('documento_index');
         }
 
         return $this->render('documento/new.html.twig', array(
@@ -92,7 +100,7 @@ class DocumentoController extends Controller
             $em->persist($documento);
             $em->flush();
 
-            return $this->redirectToRoute('documento_edit', array('id' => $documento->getId()));
+            return $this->redirectToRoute('documento_index');
         }
 
         return $this->render('documento/edit.html.twig', array(

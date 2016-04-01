@@ -46,11 +46,18 @@ class NoticiaInternaController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+		/*agregar para que el usuario logueado sea el dueño de la noticia*/
+                $userId= $this->getUser()->getId();
+                $em = $this->getDoctrine()->getManager();
+                $form->getdata()->setIdUsuario( $id_usuario = $em->getReference('MAT\SitioBundle\Entity\Usuario', $userId));
+        // fin usuario logueado	
+			
+	
             $em = $this->getDoctrine()->getManager();
             $em->persist($noticiaInterna);
             $em->flush();
 
-            return $this->redirectToRoute('noticiainterna_show', array('id' => $noticiaInterna->getId()));
+            return $this->redirectToRoute('noticiainterna_index');
         }
 
         return $this->render('noticiainterna/new.html.twig', array(
@@ -65,12 +72,12 @@ class NoticiaInternaController extends Controller
      * @Route("/{id}", name="noticiainterna_show")
      * @Method("GET")
      */
-    public function showAction(NoticiaInterna $noticiaInterna)
+    public function showAction(Noticiainterna $noticiainterna)
     {
-        $deleteForm = $this->createDeleteForm($noticiaInterna);
+        $deleteForm = $this->createDeleteForm($noticiainterna);
 
         return $this->render('noticiainterna/show.html.twig', array(
-            'noticiaInterna' => $noticiaInterna,
+            'noticiainterna' => $noticiainterna,
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -92,7 +99,7 @@ class NoticiaInternaController extends Controller
             $em->persist($noticiaInterna);
             $em->flush();
 
-            return $this->redirectToRoute('noticiainterna_edit', array('id' => $noticiaInterna->getId()));
+              return $this->redirectToRoute('noticiainterna_index');
         }
 
         return $this->render('noticiainterna/edit.html.twig', array(
