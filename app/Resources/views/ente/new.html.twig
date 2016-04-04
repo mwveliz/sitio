@@ -1,16 +1,38 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Ente creation</h1>
-
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('ente_index') }}">Back to the list</a>
-        </li>
-    </ul>
+    <h1>Creación de Registro de ente</h1>
+<div class="row">
+        <div class="col-xs-12 col-sm-12	col-md-12 col-lg-12 ">
+            <!-- BEGIN SAMPLE FORM PORTLET-->
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                </div>
+                <div class="portlet-body form">
+                    {{ form_start(form) }}{{ tinymce_init() }}
+                    {{ form_widget(form) }}
+                    <button type="reset" class="btn btn-primary"  id="clear">Limpiar</button>
+                    <a href="{{ path('ente_index') }}" class="btn btn-danger" role="button">Cancelar</a>
+                    <button type="submit" class="btn btn-success ">Enviar</button>
+                    {{ form_end(form) }}
+                    <br>
+                    <div class="form-actions">
+                    </div>
+                </div>
+            </div>
+            <!-- END SAMPLE FORM PORTLET-->
+        </div>
+ 
+    </div>
+    
+{% endblock %}
+{% block javascripts_extra %} 
+<script>
+    $('document').ready(function(){
+     
+    });
+    
+    
+    
+    </script>
 {% endblock %}

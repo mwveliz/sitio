@@ -46,11 +46,13 @@ class EnteController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+        	
+	
             $em = $this->getDoctrine()->getManager();
             $em->persist($ente);
             $em->flush();
 
-            return $this->redirectToRoute('ente_show', array('id' => $ente->getId()));
+            return $this->redirectToRoute('ente_index', array('id' => $ente->getId()));
         }
 
         return $this->render('ente/new.html.twig', array(
@@ -92,7 +94,7 @@ class EnteController extends Controller
             $em->persist($ente);
             $em->flush();
 
-            return $this->redirectToRoute('ente_edit', array('id' => $ente->getId()));
+            return $this->redirectToRoute('ente_index', array('id' => $ente->getId()));
         }
 
         return $this->render('ente/edit.html.twig', array(
