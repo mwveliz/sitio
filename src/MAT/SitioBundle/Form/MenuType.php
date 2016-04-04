@@ -15,9 +15,15 @@ class MenuType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('descripcion')
+             
+              ->add('descripcion', 'textarea', array(
+                 'attr' => array('class' =>  'advanced')
+             )) 
             ->add('posicion')
-            ->add('visible')
+			
+             ->add('visible','checkbox',array(
+                 'data' => true,
+                ))
             ->add('enlace')
         ;
     }

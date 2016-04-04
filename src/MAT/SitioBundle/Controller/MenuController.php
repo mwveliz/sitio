@@ -50,7 +50,7 @@ class MenuController extends Controller
             $em->persist($menu);
             $em->flush();
 
-            return $this->redirectToRoute('menu_show', array('id' => $menu->getId()));
+            return $this->redirectToRoute('menu_index', array('id' => $menu->getId()));
         }
 
         return $this->render('menu/new.html.twig', array(
@@ -92,7 +92,7 @@ class MenuController extends Controller
             $em->persist($menu);
             $em->flush();
 
-            return $this->redirectToRoute('menu_edit', array('id' => $menu->getId()));
+            return $this->redirectToRoute('menu_index', array('id' => $menu->getId()));
         }
 
         return $this->render('menu/edit.html.twig', array(
