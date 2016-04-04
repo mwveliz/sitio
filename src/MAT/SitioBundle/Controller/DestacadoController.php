@@ -46,11 +46,20 @@ class DestacadoController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+        	   /*agregar para que el usuario logueado sea el dueño de la noticia*/
+                $userId= $this->getUser()->getId();
+                $em = $this->getDoctrine()->getManager();
+                $form->getdata()->setIdUsuario( $id_usuario = $em->getReference('MAT\SitioBundle\Entity\Usuario', $userId));
+        // fin usuario logueado
+          
+			
+			
+			
             $em = $this->getDoctrine()->getManager();
             $em->persist($destacado);
             $em->flush();
 
-            return $this->redirectToRoute('destacado_show', array('id' => $destacado->getId()));
+            return $this->redirectToRoute('destacado_index', array('id' => $destacado->getId()));
         }
 
         return $this->render('destacado/new.html.twig', array(
@@ -92,7 +101,7 @@ class DestacadoController extends Controller
             $em->persist($destacado);
             $em->flush();
 
-            return $this->redirectToRoute('destacado_edit', array('id' => $destacado->getId()));
+            return $this->redirectToRoute('destacado_index', array('id' => $destacado->getId()));
         }
 
         return $this->render('destacado/edit.html.twig', array(

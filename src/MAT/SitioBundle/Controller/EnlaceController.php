@@ -46,11 +46,16 @@ class EnlaceController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+        	
+			$userId= $this->getUser()->getId();
+            $em = $this->getDoctrine()->getManager();
+            $form->getdata()->setIdUsuario( $id_usuario = $em->getReference('MAT\SitioBundle\Entity\Usuario', $userId));
+			
             $em = $this->getDoctrine()->getManager();
             $em->persist($enlace);
             $em->flush();
 
-            return $this->redirectToRoute('enlace_show', array('id' => $enlace->getId()));
+            return $this->redirectToRoute('enlace_index');
         }
 
         return $this->render('enlace/new.html.twig', array(
@@ -92,7 +97,7 @@ class EnlaceController extends Controller
             $em->persist($enlace);
             $em->flush();
 
-            return $this->redirectToRoute('enlace_edit', array('id' => $enlace->getId()));
+            return $this->redirectToRoute('enlace_index');
         }
 
         return $this->render('enlace/edit.html.twig', array(

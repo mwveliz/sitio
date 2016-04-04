@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block stylesheets_extra %} 
+{% block stylesheets_extra %}
       
 {% endblock %}
 
@@ -10,7 +10,7 @@
         <div class="page-container">
             <!-- BEGIN CONTENT -->
                     <div class="row">
-                       <div class="col-xs-12 col-sm-12	col-md-12 col-lg-12 ">
+                       <div class="col-xs-12 col-sm-12        col-md-12 col-lg-12 ">
                             <a class="btn btn-success" href="{{ path('informacion_new') }}" ><span>Agregar</span></a>
                             <br><br>                            
                             <!-- BEGIN EXAMPLE TABLE PORTLET-->
@@ -28,7 +28,7 @@
                                             <tr>
                                                 <th class="all" width="10%">Detalle</th>
                                                 <th class="all" width="10%">Editar</th>
-                                                <th class="all">Descripcion</th>                                               
+                                                <th class="all">Descripcion</th>                                              
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -38,20 +38,20 @@
                                                     <center>
                                                         <a href="{{ path('informacion_show', { 'id': Informacion.id }) }}">
                                                             <i class="glyphicon glyphicon-search"></i>
-                                                        </a>       
+                                                        </a>      
                                                     </center>
                                                 </td>
                                                     <td>
                                                     <center>
                                                         <a href="{{ path('informacion_edit', { 'id': Informacion.id }) }}">
                                                             <i class="glyphicon glyphicon-pencil"></i>
-                                                        </a>       
+                                                        </a>      
                                                     </center>
                                                 </td>
                                             
                                                 <td>{{ Informacion.descripcion | raw }}</td>                                                
                                             </tr>
-                                        {% endfor %} 
+                                        {% endfor %}
                                         </tbody>                                        
                                     </table>
                                 </div>
@@ -64,14 +64,13 @@
                                         
             <!-- END CONTENT BODY -->
             
-        </div>                                       
+        </div>                                      
         <!-- END CONTAINER -->
-     
+    
 {% endblock %}
 
-{% block javascripts_extra %} 
+{% block javascripts_extra %}
 
 
  <script>    
  {% endblock %}
-    
