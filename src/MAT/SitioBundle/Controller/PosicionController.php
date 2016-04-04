@@ -24,12 +24,56 @@ class PosicionController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
+         $em = $this->getDoctrine()->getManager();
 
-        $posicions = $em->getRepository('SitioBundle:Posicion')->findAll();
-
+        $registros= $em->getRepository('SitioBundle:Noticia')->findAll();
+            
         return $this->render('posicion/index.html.twig', array(
-            'posicions' => $posicions,
+            'registros' => $registros,
+        ));
+    }
+
+    /**
+     * Lists all Posicion entities.
+     *
+     * @Route("/tabla", name="tabla_index")
+     * @Method("POST")
+     */
+    public function tablaAction(Request $request)
+    {
+        
+        
+        $em = $this->getDoctrine()->getManager();
+        $seleccion=$request->get('seleccion');
+        switch ($seleccion) {
+            case 'noticia':
+                $registros= $em->getRepository('SitioBundle:Noticia')->findAll();
+                break;
+            case 'interna':
+                $registros= $em->getRepository('SitioBundle:NoticiaInterna')->findAll();
+                break;
+            case 'destacado':
+                $registros= $em->getRepository('SitioBundle:Destacado')->findAll();
+                break;
+            case 'enlace':
+                $registros= $em->getRepository('SitioBundle:Enlace')->findAll();
+                break;
+            case 'estadistica':
+                $registros= $em->getRepository('SitioBundle:Estadistica')->findAll();
+                break;
+            case 'video':
+                $registros= $em->getRepository('SitioBundle:Video')->findAll();
+                break;
+
+            default:
+                    $registros= $em->getRepository('SitioBundle:Noticia')->findAll();
+
+                break;
+        }
+        
+            
+        return $this->render('posicion/tabla.html.twig', array(
+            'registros' => $registros,
         ));
     }
 
