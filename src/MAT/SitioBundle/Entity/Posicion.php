@@ -50,7 +50,7 @@ class Posicion
     private $idNoticia;
 
     /**
-     * @var \MAT\SitioBundle\Entity\ImagenNoticiainterna
+     * @var \MAT\SitioBundle\Entity\IdNoticiainterna
      */
     private $idNoticiainterna;
 

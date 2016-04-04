@@ -23,7 +23,7 @@
         <join-column name="id_noticia" referenced-column-name="id"/>
       </join-columns>
     </many-to-one>
-    <many-to-one field="idNoticiainterna" target-entity="ImagenNoticiainterna">
+    <many-to-one field="idNoticiainterna" target-entity="NoticiaInterna">
       <join-columns>
         <join-column name="id_noticiainterna" referenced-column-name="id"/>
       </join-columns>
