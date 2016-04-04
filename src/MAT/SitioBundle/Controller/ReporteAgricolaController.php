@@ -46,6 +46,10 @@ class ReporteAgricolaController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+        	 $userId= $this->getUser()->getId();
+                $em = $this->getDoctrine()->getManager();
+                $form->getdata()->setIdUsuario( $id_usuario = $em->getReference('MAT\SitioBundle\Entity\Usuario', $userId));
+			
             $em = $this->getDoctrine()->getManager();
             $em->persist($reporteAgricola);
             $em->flush();
