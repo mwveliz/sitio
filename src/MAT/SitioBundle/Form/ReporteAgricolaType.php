@@ -18,7 +18,7 @@ class ReporteAgricolaType extends AbstractType
              ->add('descripcion', 'textarea', array(
                  'attr' => array('class' => 'advanced')
              )) 
-            ->add('fechaHora', 'date', array(
+           ->add('fechaHora', 'date', array(
                          'data' =>  new \DateTime(),
                         'label' => 'Fecha ',
                         'widget' => 'single_text',
@@ -30,16 +30,15 @@ class ReporteAgricolaType extends AbstractType
                         'locale' => 'es',
                          
                         )))
-            
-			 ->add('visible','checkbox',array(
-                 'data' => true,
-                
-                ))        
+            ->add('visible','checkbox',array(
+                 'data' => true
+
+				))
             ->add('titulo')
+            ->add('ruta')
             ->add('ruta', 'file', array('data_class' => null ))
-            ->add('enlace')
-           ->add('idUsuario','hidden',array(
-            ))   ;
+            ->add('idUsuario')
+        ;
     }
     
     /**

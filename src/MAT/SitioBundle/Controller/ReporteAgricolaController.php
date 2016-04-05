@@ -46,15 +46,26 @@ class ReporteAgricolaController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-        	 $userId= $this->getUser()->getId();
-                $em = $this->getDoctrine()->getManager();
-                $form->getdata()->setIdUsuario( $id_usuario = $em->getReference('MAT\SitioBundle\Entity\Usuario', $userId));
+        	
+			//die(var_dump($_FILES));
+                        $temporal=$_FILES['reporte_agricola']['tmp_name']['ruta'];
+                        $nombre_arch=$_FILES['reporte_agricola']['name']['ruta'];
+                        move_uploaded_file($temporal, $this->get('kernel')->getRootDir().'/../web/imagenes/'.$nombre_arch);
+                    $em = $this->getDoctrine()->getManager();
+                    $reporteAgricola->setRuta($nombre_arch); //nombre original
+            $em->persist($reporteAgricola);
+            $em->flush();
 			
+			
+              $userId= $this->getUser()->getId();
+              $em = $this->getDoctrine()->getManager();
+              $form->getdata()->setIdUsuario( $id_usuario = $em->getReference('MAT\SitioBundle\Entity\Usuario', $userId));
+                        
             $em = $this->getDoctrine()->getManager();
             $em->persist($reporteAgricola);
             $em->flush();
 
-            return $this->redirectToRoute('reporteagricola_show', array('id' => $reporteAgricola->getId()));
+            return $this->redirectToRoute('reporteagricola_index');
         }
 
         return $this->render('reporteagricola/new.html.twig', array(
@@ -96,7 +107,7 @@ class ReporteAgricolaController extends Controller
             $em->persist($reporteAgricola);
             $em->flush();
 
-            return $this->redirectToRoute('reporteagricola_edit', array('id' => $reporteAgricola->getId()));
+            return $this->redirectToRoute('reporteagricola_index');
         }
 
         return $this->render('reporteagricola/edit.html.twig', array(
