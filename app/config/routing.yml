@@ -3,6 +3,11 @@ homepage:
     pattern:   /
     defaults:  { _controller: SitioBundle:Informacion:index}
 
+mat_api:
+    type:     rest
+    prefix:   /api
+    resource: "@SitioBundle/Resources/config/api-routing.yml"
+    
 sitio_destacado:
     resource: "@SitioBundle/Controller/DestacadoController.php"
     type:     annotation

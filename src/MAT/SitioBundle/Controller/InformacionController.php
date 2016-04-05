@@ -3,11 +3,14 @@
 namespace MAT\SitioBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use MAT\SitioBundle\Entity\Informacion;
 use MAT\SitioBundle\Form\InformacionType;
+use Doctrine\ORM\Query;
 
 /**
  * Informacion controller.
@@ -148,4 +151,26 @@ class InformacionController extends Controller
             ->getForm()
         ;
     }
+    
+   /**
+     * Informaciones REST solo buscando una pagina 
+     */
+     public function getInformacionAction($pagina)
+    {
+        $response = new Response();;
+        /*$response->headers->set('Access-Control-Allow-Headers', 'origin, content-type, accept');
+        $response->headers->set('Access-Control-Allow-Origin', '*');
+        $response->headers->set('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, PATCH, OPTIONS');
+        $response->send();*/
+    $em = $this->getDoctrine()->getManager();
+    $qb = $em->createQueryBuilder('i');
+     $results = $em->createQuery('SELECT i FROM SitioBundle:Informacion i'
+                           . ' ORDER BY i.id DESC')
+                    //->setParameters($parameters)
+                    ->setFirstResult($pagina)
+                    ->setMaxResults(1)
+                    ->getResult();            
+               return $results; 
+    }
+    
 }

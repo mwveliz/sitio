@@ -1,0 +1,4 @@
+mat_api_informacion:
+    type: rest
+    resource: "@SitioBundle/Controller/InformacionController.php"
+    name_prefix:  api_informacion_
