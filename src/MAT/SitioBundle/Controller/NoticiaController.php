@@ -150,4 +150,25 @@ class NoticiaController extends Controller
             ->getForm()
         ;
     }
+     
+   /**
+     * Informaciones REST solo buscando una pagina 
+     */
+     public function getNoticiaAction($pagina)
+    {
+        $response = new Response();;
+        /*$response->headers->set('Access-Control-Allow-Headers', 'origin, content-type, accept');
+        $response->headers->set('Access-Control-Allow-Origin', '*');
+        $response->headers->set('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, PATCH, OPTIONS');
+        $response->send();*/
+    $em = $this->getDoctrine()->getManager();
+    $qb = $em->createQueryBuilder('i');
+     $results = $em->createQuery('SELECT i FROM SitioBundle:Noticia i'
+                           . ' ORDER BY i.id DESC')
+                    //->setParameters($parameters)
+                    ->setFirstResult($pagina)
+                    ->setMaxResults(1)
+                    ->getResult();            
+               return $results; 
+    }
 }
