@@ -2,3 +2,8 @@ mat_api_informacion:
     type: rest
     resource: "@SitioBundle/Controller/InformacionController.php"
     name_prefix:  api_informacion_
+    
+mat_api_noticia:
+    type: rest
+    resource: "@SitioBundle/Controller/NoticiaController.php"
+    name_prefix:  api_noticia_    
