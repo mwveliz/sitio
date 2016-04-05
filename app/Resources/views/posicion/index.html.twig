@@ -5,14 +5,14 @@
 
 
 {% block body %}
-    <h1>Registros</h1>
+    <h1>Posición</h1>
  <!-- BEGIN CONTAINER -->
         <div class="page-container">
             <!-- BEGIN CONTENT -->
                     <div class="row">
                        <div class="col-xs-12 col-sm-12	col-md-12 col-lg-12 ">
                             <br><br>                            
-                              <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
                             <div class="portlet light bordered">
                                 <div class="portlet-title">
                                     <div class="caption font-green">
@@ -22,10 +22,7 @@
                                     <div class="tools"> </div>
                                 </div>
                                 <div class="form-group col-xs-4 col-sm-4	col-md-4 col-lg-4">
-                                
-                                    
                                 <select class="form-control" name="seleccion" id="seleccion">
-                                    
                                     <option value="noticia">Noticia</option >
                                     <option value="interna">Noticias Internas</option >
                                     <option value="destacado">Destacado</option >
@@ -35,19 +32,27 @@
                                 </select>
                                 </div>    
                                 <div class="portlet-body">
-                                    <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_2">
+                                    <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_1">
                                         <thead>
                                             <tr>
-                                                <th class="all">Título</th>                                               
-                                                <th class="all">Descripción</th>                                               
-                                                <th class="all">Posición</th>                                               
+                                                <th class="all" width="10%">ID</th>
+                                                <th class="all" width="10%">Titulo</th>
+                                                <th class="all">Descripcion</th>    
+                                                <th class="all">Posición</th>  
                                             </tr>
                                         </thead>
                                         <tbody>
-                                      
+                                          {% for Registro in registros%}
+                                            <tr>                                      
+                                                <td>{{ Registro.id}}</td>    
+                                                <td>{{ Registro.titulo | raw }}</td> 
+                                                <td>{{ Registro.descripcion | raw }}</td>
+                                                <td><input type="number" max="10" min="1"/></td>                                                
+                                            </tr>
+                                            
+                                        {% endfor %} 
                                         </tbody>                                        
                                     </table>
-     
                                 </div>
                             </div>
                             <!-- END EXAMPLE TABLE PORTLET-->
@@ -64,13 +69,8 @@
 {% endblock %}
 
 {% block javascripts_extra %} 
-    
-
-
- <script>
+<script>
    $(document).ready(function(){
-      $('tbody').load("{{path('tabla_index')}}", {seleccion:'noticia'})  ;
-
       //cuando hago click en el select de noticia, descatado, etc
        $('#seleccion').change(function(){
            var seleccion=$('option:selected',this).val();
@@ -84,7 +84,7 @@
 
     });  
  </script>
-     
-     
+
+ <script>    
  {% endblock %}
     
