@@ -7,3 +7,34 @@ mat_api_noticia:
     type: rest
     resource: "@SitioBundle/Controller/NoticiaController.php"
     name_prefix:  api_noticia_    
+        
+mat_api_inerna:
+    type: rest
+    resource: "@SitioBundle/Controller/NoticiaInternaController.php"
+    name_prefix:  api_interna_ 
+    
+mat_api_video:
+    type: rest
+    resource: "@SitioBundle/Controller/VideoController.php"
+    name_prefix:  api_video_    
+        
+mat_api_enlace:
+    type: rest
+    resource: "@SitioBundle/Controller/EnlaceController.php"
+    name_prefix:  api_enlace_    
+    
+mat_api_estadistica:
+    type: rest
+    resource: "@SitioBundle/Controller/EstadisticaController.php"
+    name_prefix:  api_estadistica_ 
+    
+mat_api_imagen:
+    type: rest
+    resource: "@SitioBundle/Controller/ImagenController.php"
+    name_prefix:  api_imagen_
+    
+mat_api_destacado:
+    type: rest
+    resource: "@SitioBundle/Controller/DestacadoController.php"
+    name_prefix:  api_destacado_
+

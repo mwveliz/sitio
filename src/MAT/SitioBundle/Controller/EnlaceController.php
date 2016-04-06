@@ -144,7 +144,7 @@ class EnlaceController extends Controller
     }
        public function getEnlaceAction($pagina)
     {
-        $response = new Response();;
+       // $response = new Response();;
       
          $em = $this->getDoctrine()->getManager();
          $qb = $em->createQueryBuilder('i');

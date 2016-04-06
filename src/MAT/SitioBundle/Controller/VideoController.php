@@ -147,7 +147,7 @@ class VideoController extends Controller
     }
        public function getVideoAction($pagina)
     {
-        $response = new Response();;
+        //$response = new Response();;
         
     $em = $this->getDoctrine()->getManager();
     $qb = $em->createQueryBuilder('i');

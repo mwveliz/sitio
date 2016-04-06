@@ -151,7 +151,7 @@ class ImagenController extends Controller
     }
       public function getImagenAction($pagina)
     {
-        $response = new Response();;
+       // $response = new Response();;
        
     $em = $this->getDoctrine()->getManager();
     $qb = $em->createQueryBuilder('i');

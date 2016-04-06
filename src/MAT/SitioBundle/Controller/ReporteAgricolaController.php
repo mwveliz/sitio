@@ -46,20 +46,12 @@ class ReporteAgricolaController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-        	
-			//die(var_dump($_FILES));
-                        $temporal=$_FILES['reporte_agricola']['tmp_name']['ruta'];
-                        $nombre_arch=$_FILES['reporte_agricola']['name']['ruta'];
-                        move_uploaded_file($temporal, $this->get('kernel')->getRootDir().'/../web/imagenes/'.$nombre_arch);
-                    $em = $this->getDoctrine()->getManager();
-                    $reporteAgricola->setRuta($nombre_arch); //nombre original
-            $em->persist($reporteAgricola);
-            $em->flush();
+        	 /*agregar para que el usuario logueado sea el dueño de la noticia*/
+                $userId= $this->getUser()->getId();
+                $em = $this->getDoctrine()->getManager();
+                $form->getdata()->setIdUsuario( $id_usuario = $em->getReference('MAT\SitioBundle\Entity\Usuario', $userId));
+        // fin usuario logueado
 			
-			
-              $userId= $this->getUser()->getId();
-              $em = $this->getDoctrine()->getManager();
-              $form->getdata()->setIdUsuario( $id_usuario = $em->getReference('MAT\SitioBundle\Entity\Usuario', $userId));
                         
             $em = $this->getDoctrine()->getManager();
             $em->persist($reporteAgricola);
