@@ -142,4 +142,18 @@ class EnlaceController extends Controller
             ->getForm()
         ;
     }
+       public function getEnlaceAction($pagina)
+    {
+        $response = new Response();;
+      
+         $em = $this->getDoctrine()->getManager();
+         $qb = $em->createQueryBuilder('i');
+     $results = $em->createQuery('SELECT i FROM SitioBundle:Enlace i'
+                      . ' ORDER BY i.id DESC')
+                    //->setParameters($parameters)
+                    ->setFirstResult($pagina)
+                    ->setMaxResults(1)
+                    ->getResult();            
+               return $results; 
+    }
 }

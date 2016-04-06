@@ -152,4 +152,18 @@ class ReporteAgricolaController extends Controller
             ->getForm()
         ;
     }
+     public function getReporteAgricolaAction($pagina)
+    {
+        $response = new Response();;
+        
+    $em = $this->getDoctrine()->getManager();
+    $qb = $em->createQueryBuilder('i');
+     $results = $em->createQuery('SELECT i FROM SitioBundle:ReporteAgricola i'
+                           . ' ORDER BY i.id DESC')
+                    //->setParameters($parameters)
+                    ->setFirstResult($pagina)
+                    ->setMaxResults(1)
+                    ->getResult();            
+               return $results; 
+    }
 }

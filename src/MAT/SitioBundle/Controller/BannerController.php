@@ -46,11 +46,33 @@ class BannerController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            
+                $userId= $this->getUser()->getId();
+                $em = $this->getDoctrine()->getManager();
+                $form->getdata()->setIdUsuario( $id_usuario = $em->getReference('MAT\SitioBundle\Entity\Usuario', $userId));
+                $temporal=$_FILES['banner']['tmp_name']['rutaBanner'];
+                $nombre_png=$_FILES['banner']['name']['rutaBanner'];
+                move_uploaded_file($temporal, $this->get('kernel')->getRootDir().'/../web/imagenes/'.$nombre_png);
+                $temporal2=$_FILES['banner']['tmp_name']['rutaFooter'];
+                $nombre_png2=$_FILES['banner']['name']['rutaFooter'];
+                move_uploaded_file($temporal2, $this->get('kernel')->getRootDir().'/../web/imagenes/'.$nombre_png2);
+                $temporal3=$_FILES['banner']['tmp_name']['rutaSplash'];
+                $nombre_png3=$_FILES['banner']['name']['rutaSplash'];
+                move_uploaded_file($temporal3, $this->get('kernel')->getRootDir().'/../web/imagenes/'.$nombre_png3);
+                $temporal4=$_FILES['banner']['tmp_name']['rutaLogo'];
+                $nombre_png4=$_FILES['banner']['name']['rutaLogo'];
+                move_uploaded_file($temporal4, $this->get('kernel')->getRootDir().'/../web/imagenes/'.$nombre_png4);
+                 
             $em = $this->getDoctrine()->getManager();
+            $banner->setRutaBanner($nombre_png);  //nombre original
+            $banner->setRutaFooter($nombre_png2);
+            $banner->setRutaSplash($nombre_png3);
+            $banner->setRutaLogo($nombre_png4);
             $em->persist($banner);
+    
             $em->flush();
 
-            return $this->redirectToRoute('banner_show', array('id' => $banner->getId()));
+            return $this->redirectToRoute('banner_index', array('id' => $banner->getId()));
         }
 
         return $this->render('banner/new.html.twig', array(
@@ -92,7 +114,7 @@ class BannerController extends Controller
             $em->persist($banner);
             $em->flush();
 
-            return $this->redirectToRoute('banner_edit', array('id' => $banner->getId()));
+            return $this->redirectToRoute('banner_index', array('id' => $banner->getId()));
         }
 
         return $this->render('banner/edit.html.twig', array(
@@ -136,5 +158,19 @@ class BannerController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+    public function getBannerAction($pagina)
+    {
+        $response = new Response();;
+       
+    $em = $this->getDoctrine()->getManager();
+    $qb = $em->createQueryBuilder('i');
+     $results = $em->createQuery('SELECT i FROM SitioBundle:Banner i'
+                           . ' ORDER BY i.id DESC')
+                    //->setParameters($parameters)
+                    ->setFirstResult($pagina)
+                    ->setMaxResults(1)
+                    ->getResult();            
+               return $results; 
     }
 }
