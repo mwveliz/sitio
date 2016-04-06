@@ -36,6 +36,9 @@ class EnlaceType extends AbstractType
                  'data' => true,
                 
                 ))
+                  ->add('idUsuario','hidden',array(
+                  
+             )) 
             
         ;
     }

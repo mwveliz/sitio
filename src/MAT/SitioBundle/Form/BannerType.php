@@ -21,7 +21,9 @@ class BannerType extends AbstractType
             ->add('rutaSplash', 'file' , array( 'data_class' => null ))
             ->add('fechaHora', 'datetime')
             ->add('visibleSplash')
-            ->add('idUsuario')
+             ->add('idUsuario','hidden',array(
+                  
+             )) 
         ;
     }
     

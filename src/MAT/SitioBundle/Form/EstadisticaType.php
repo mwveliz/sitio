@@ -39,7 +39,9 @@ class EstadisticaType extends AbstractType
                  ->add('titulo')
                  ->add('autor')
                  ->add('ruta', 'file' , array( 'data_class' => null ))
-                 ->add('idUsuario')
+                   ->add('idUsuario','hidden',array(
+                  
+             )) 
 
 
             

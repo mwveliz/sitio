@@ -37,7 +37,9 @@ class ReporteAgricolaType extends AbstractType
             ->add('titulo')
             ->add('ruta')
             ->add('ruta', 'file', array('data_class' => null ))
-            ->add('idUsuario')
+             ->add('idUsuario','hidden',array(
+                  
+             )) 
         ;
     }
     
