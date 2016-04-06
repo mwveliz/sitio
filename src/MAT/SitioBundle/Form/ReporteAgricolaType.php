@@ -30,16 +30,17 @@ class ReporteAgricolaType extends AbstractType
                         'locale' => 'es',
                          
                         )))
-            ->add('visible','checkbox',array(
-                 'data' => true
-
-				))
+            
             ->add('titulo')
             ->add('ruta')
             ->add('ruta', 'file', array('data_class' => null ))
              ->add('idUsuario','hidden',array(
                   
              )) 
+            ->add('visible','checkbox',array(
+                 'data' => true
+
+				))
         ;
     }
     
