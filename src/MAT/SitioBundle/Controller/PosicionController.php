@@ -36,8 +36,8 @@ class PosicionController extends Controller
     /**
      * Lists all Posicion entities.
      *
-     * @Route("/tabla", name="tabla_index")
-     * @Method("POST")
+     * @Route("/{seleccion}", name="tabla_index")
+     * @Method("GET")
      */
     public function tablaAction(Request $request)
     {
@@ -72,8 +72,8 @@ class PosicionController extends Controller
         }
         
             
-        return $this->render('posicion/tabla.html.twig', array(
-            'registros' => $registros,
+        return $this->render('posicion/index.html.twig', array(
+            'registros' => $registros, 'seleccion' => $seleccion
         ));
     }
 
