@@ -56,7 +56,7 @@ class ImagenController extends Controller
 			//die(var_dump($_FILES));
 			$temporal=$_FILES['imagen']['tmp_name']['ruta'];
 			$nombre_png=$_FILES['imagen']['name']['ruta'];
-			move_uploaded_file($temporal, $this->get('kernel')->getRootDir().'/../web/imagenes/'.$nombre_png);
+			move_uploaded_file($temporal, $this->get('kernel')->getRootDir().'/../web/upload/'.$nombre_png);
 		    $em = $this->getDoctrine()->getManager();
 		    $imagen->setRuta($nombre_png); //nombre original
             $em->persist($imagen);

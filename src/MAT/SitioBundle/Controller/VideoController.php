@@ -52,7 +52,7 @@ class VideoController extends Controller
              $form->getdata()->setIdUsuario( $id_usuario = $em->getReference('MAT\SitioBundle\Entity\Usuario', $userId));
                         $temporal=$_FILES['video']['tmp_name']['ruta'];
                         $nombre_png=$_FILES['video']['name']['ruta'];
-                        move_uploaded_file($temporal, $this->get('kernel')->getRootDir().'/../web/imagenes/'.$nombre_png);
+                        move_uploaded_file($temporal, $this->get('kernel')->getRootDir().'/../web/upload/'.$nombre_png);
                         $em = $this->getDoctrine()->getManager();
                         $video->setRuta($nombre_png); //nombre original
                         $em->persist($video);
