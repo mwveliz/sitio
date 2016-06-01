@@ -31,9 +31,7 @@ class NoticiaInternaType extends AbstractType
                         'locale' => 'es',
                          
                         )))
-                  ->add('idUsuario','hidden',array(
                   
-             )) 
                 
                   
             ->add('visible','checkbox',array(

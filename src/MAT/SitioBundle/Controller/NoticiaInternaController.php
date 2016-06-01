@@ -95,13 +95,17 @@ class NoticiaInternaController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $em = $this->getDoctrine()->getManager();
+          
+		
+		  
+		    $em = $this->getDoctrine()->getManager();
             $em->persist($noticiaInterna);
             $em->flush();
 
               return $this->redirectToRoute('noticiainterna_index');
         }
-
+        
+         
         return $this->render('noticiainterna/edit.html.twig', array(
             'noticiaInterna' => $noticiaInterna,
             'edit_form' => $editForm->createView(),
