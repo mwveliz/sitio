@@ -106,7 +106,7 @@ class InformacionController extends Controller
             $em->persist($informacion);
             $em->flush();
 
-            return $this->redirectToRoute('informacion_edit', array('id' => $informacion->getId()));
+            return $this->redirectToRoute('informacion_index', array('id' => $informacion->getId()));
         }
 
         return $this->render('informacion/edit.html.twig', array(
@@ -172,5 +172,16 @@ class InformacionController extends Controller
                     ->getResult();            
                return $results; 
     }
+ /**  
+* CONTADOR DE ELEMENTOS REST  
+     */
+     public function getCountInformacionAction()
+    {
+    $em = $this->getDoctrine()->getManager();
     
+     $results = $em->getRepository('SitioBundle:Informacion')->findAll();
+             
+               return count($results); 
+    }
 }
+

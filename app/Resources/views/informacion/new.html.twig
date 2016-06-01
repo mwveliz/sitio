@@ -11,7 +11,7 @@
                 <div class="portlet-body form">
                     {{ form_start(form) }}{{ tinymce_init() }}
                     {{ form_widget(form) }}
-                    <button type="button" class="btn btn-primary"  id="clear">Limpiar</button>
+                    <button type="reset" class="btn btn-primary"  id="clear">Limpiar</button>
                     <a href="{{ path('informacion_index') }}" class="btn btn-danger" role="button">Cancelar</a>
                     <button type="submit" class="btn btn-success ">Enviar</button>
                     {{ form_end(form) }}

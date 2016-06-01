@@ -31,9 +31,7 @@ class InformacionType extends AbstractType
                         'locale' => 'es',
                          
                         )))
-               ->add('idUsuario','hidden',array(
-                  
-             ))            
+               
             ->add('visible','checkbox',array(
                  'data' => true,
                 
