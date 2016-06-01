@@ -16,10 +16,17 @@ class EnlaceType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-             ->add('descripcion', 'textarea', array(
+            ->add('descripcion', 'textarea', array(
+                 'label' =>'Descripción',    
+                 'attr' => array('placeholder' => 'Descripción', 'class'=> 'form-control input-sm ')
+             ))
+             /* ->add('descripcion', 'textarea', array(
                  'attr' => array('class' =>  'advanced')
-             )) 
-            ->add('fechaHora', 'date', array(
+             )) */
+           
+           
+          
+             ->add('fechaHora', 'date', array(
                          'data' =>  new \DateTime(),
                         'label' => 'Fecha ',
                         'widget' => 'single_text',
