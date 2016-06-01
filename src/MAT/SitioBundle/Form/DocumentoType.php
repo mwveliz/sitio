@@ -15,9 +15,13 @@ class DocumentoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('descripcion', 'textarea', array(
+       /* ->add('descripcion', 'textarea', array(
                  'attr' => array('class' => 	'advanced')
-             )) 
+             ))*/
+           ->add('descripcion', 'text', array(
+                 'label' =>'Descripcion',    
+                 'attr' => array('placeholder' => 'Descripcion', 'class'=> 'form-control input-sm ')
+             ))  
 			->add('ruta', 'file', array('data_class'=>null)) 
             ->add('fechaHora', 'date', array(
                          'data' =>  new \DateTime(),
