@@ -159,4 +159,15 @@ class VideoController extends Controller
                     ->getResult();            
                return $results; 
     }
+     * CONTADOR DE ELEMENTOS REST  
+     */
+     public function getCountvideoAction()
+    {
+    $em = $this->getDoctrine()->getManager();
+    
+     $results = $em->getRepository('SitioBundle:Video')->findAll();
+             
+               return count($results); 
+    }
+}
 }
