@@ -21,7 +21,9 @@ class VideoType extends AbstractType
             ->add('titulo')
             ->add('autor')
             ->add('ruta', 'file')
-            ) 
+              ->add('idUsuario','hidden',array(
+                  
+             )) 
         ;
     }
     
