@@ -166,6 +166,14 @@ class DocumentoController extends Controller
                     ->getResult();            
                return $results; 
     }
+      /* CONTADOR DE ELEMENTOS REST   */
+     public function getCountnoticiaAction()
+    {
+    $em = $this->getDoctrine()->getManager();
     
+     $results = $em->getRepository('SitioBundle:Noticia')->findAll();
+             
+               return count($results); 
+    }
 }
 
