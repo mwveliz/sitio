@@ -159,6 +159,7 @@ class VideoController extends Controller
                     ->getResult();            
                return $results; 
     }
+    /**
      * CONTADOR DE ELEMENTOS REST  
      */
      public function getCountvideoAction()
