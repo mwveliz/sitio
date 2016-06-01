@@ -15,15 +15,43 @@ class VideoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('descripcion')
-            ->add('fechaHora', 'datetime')
-            ->add('visible')
-            ->add('titulo')
-            ->add('autor')
+            ->add('descripcion', 'textarea', array(
+                 'label' =>'Descripción',    
+                 'attr' => array('placeholder' => 'Descripción', 'class'=> 'form-control input-sm ')
+             ))
+         
+            
+            
+			->add('titulo', 'text', array(
+                 'label' =>'Titulo',    
+                 'attr' => array('placeholder' => 'Ingrese titulo', 'class'=> 'form-control input-sm ')
+             ))
+            
+			->add('autor', 'text', array(
+                 'label' =>'Autor',    
+                 'attr' => array('placeholder' => 'Ingrese autor', 'class'=> 'form-control input-sm ')
+             ))
             ->add('ruta', 'file')
-              ->add('idUsuario','hidden',array(
+			  ->add('fechaHora', 'date', array(
+                         'data' =>  new \DateTime(),
+                        'label' => 'Fecha ',
+                        'widget' => 'single_text',
+                        'format' => 'dd-MM-yyyy',
+                        'attr' => array(
+                        'class' => 'form-control input-inline datepicker',
+                        'data-provide' => 'datepicker',
+                        'data-date-format' => 'dd-mm-yyyy',
+                        'locale' => 'es',
+                         
+                        )))
+			->add('visible','checkbox',array(
+                 'data' => true,
+                
+                ))
+            
+           /* ->add('idUsuario','hidden',array(
                   
-             )) 
+             )) */
         ;
     }
     
