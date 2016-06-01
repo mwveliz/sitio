@@ -14,11 +14,21 @@ class EnteType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('descripcion', 'textarea', array(
+        $builder
+        /*->add('descripcion', 'textarea', array(
                  'attr' => array('class' =>  'advanced')
-             )) 
+             )) */
+             
+             ->add('descripcion', 'text', array(
+                 'label' =>'Descripcion',    
+                 'attr' => array('placeholder' => 'Descripcion', 'class'=> 'form-control input-sm ')
+             ))  
+			 
             
-            ->add('enlace')
+            ->add('enlace', 'text', array(
+                 'label' =>'Enlace',    
+                 'attr' => array('placeholder' => 'Descripcion', 'class'=> 'form-control input-sm ')
+             )) 
         ;
     }
     
