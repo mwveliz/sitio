@@ -160,6 +160,19 @@ class EnteController extends Controller
                     ->getResult();            
                return $results; 
     }
+
+     * CONTADOR DE ELEMENTOS REST  
+     */
+     public function getCountenteAction()
+    {
+    $em = $this->getDoctrine()->getManager();
     
+     $results = $em->getRepository('SitioBundle:Ente')->findAll();
+             
+               return count($results); 
+    }
 }
+    
+
+
 
