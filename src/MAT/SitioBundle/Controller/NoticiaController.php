@@ -189,11 +189,7 @@ class NoticiaController extends Controller
                            . ' WHERE i.visible=TRUE and i.fechaHora <= :fechadehoy'
                            . ' ORDER BY i.id DESC')
                     ->setParameters($parameters)
-                    ->setFirstResult($pagina)
-                    ->setMaxResults(1)
                     ->getResult();            
-               return $results; 
-             
                return count($results); 
     }
 }
