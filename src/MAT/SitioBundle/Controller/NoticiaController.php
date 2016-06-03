@@ -158,9 +158,16 @@ class NoticiaController extends Controller
     {
     $em = $this->getDoctrine()->getManager();
     $qb = $em->createQueryBuilder('i');
+    $parameters = array( //parametros para el query
+        'fechadehoy' => new \DateTime(),
+        
+    );
+    
+    //query para filtrar las visibles y con fecha anterior al dia de hoy (no futura)
      $results = $em->createQuery('SELECT i FROM SitioBundle:Noticia i'
+                           . ' WHERE i.visible=TRUE and i.fechaHora <= :fechadehoy'
                            . ' ORDER BY i.id DESC')
-                    //->setParameters($parameters)
+                    ->setParameters($parameters)
                     ->setFirstResult($pagina)
                     ->setMaxResults(1)
                     ->getResult();            
@@ -172,8 +179,20 @@ class NoticiaController extends Controller
      public function getCountnoticiaAction()
     {
     $em = $this->getDoctrine()->getManager();
+    $qb = $em->createQueryBuilder('i');
+    $parameters = array( //parametros para el query
+        'fechadehoy' => new \DateTime(),
+        
+    );
     
-     $results = $em->getRepository('SitioBundle:Noticia')->findAll();
+     $results = $em->createQuery('SELECT COUNT(i) FROM SitioBundle:Noticia i'
+                           . ' WHERE i.visible=TRUE and i.fechaHora <= :fechadehoy'
+                           . ' ORDER BY i.id DESC')
+                    ->setParameters($parameters)
+                    ->setFirstResult($pagina)
+                    ->setMaxResults(1)
+                    ->getResult();            
+               return $results; 
              
                return count($results); 
     }
