@@ -185,7 +185,7 @@ class NoticiaController extends Controller
         
     );
     
-     $results = $em->createQuery('SELECT COUNT(i) FROM SitioBundle:Noticia i'
+     $results = $em->createQuery('SELECT i FROM SitioBundle:Noticia i'
                            . ' WHERE i.visible=TRUE and i.fechaHora <= :fechadehoy'
                            . ' ORDER BY i.id DESC')
                     ->setParameters($parameters)
