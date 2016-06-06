@@ -37,4 +37,12 @@ mat_api_destacado:
     type: rest
     resource: "@SitioBundle/Controller/DestacadoController.php"
     name_prefix:  api_destacado_
+mat_api_banner:
+    type: rest
+    resource: "@SitioBundle/Controller/BannerController.php"
+    name_prefix:  api_banner_
+mat_api_documento:
+    type: rest
+    resource: "@SitioBundle/Controller/DocumentoController.php"
+    name_prefix:  api_documento_
 

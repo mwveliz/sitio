@@ -38,8 +38,7 @@
 | -------------------------------------------------------------------*/
 
 	
-	$config['img_path'] = '/sitio/web/upload'; // Relative to domain name
-	$config['upload_path'] = $_SERVER['DOCUMENT_ROOT'] . $config['img_path']; // Physical path. [Usually works fine like this]
+	$config['img_path'] = '/sitio/web/uploads'; // Relative to domain name	$config['upload_path'] = $_SERVER['DOCUMENT_ROOT'] . $config['img_path']; // Physical path. [Usually works fine like this]
 	
 
 /*-------------------------------------------------------------------
