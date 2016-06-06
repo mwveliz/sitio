@@ -169,7 +169,7 @@ class EnteController extends Controller
 /**
      * CONTADOR DE ELEMENTOS REST  
      */
-     public function getCountnoticiaAction()
+     public function getCountenteAction()
     {
     $em = $this->getDoctrine()->getManager();
     $qb = $em->createQueryBuilder('i');

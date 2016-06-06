@@ -173,7 +173,7 @@ class DocumentoController extends Controller
                return $results; 
     }
       /* CONTADOR DE ELEMENTOS REST   */
-     public function getCountnoticiaAction()
+     public function getCountdocumentoAction()
     {
     $em = $this->getDoctrine()->getManager();
     $qb = $em->createQueryBuilder('i');

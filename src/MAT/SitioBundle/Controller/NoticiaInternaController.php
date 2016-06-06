@@ -179,7 +179,7 @@ class NoticiaInternaController extends Controller
    /**
      * CONTADOR DE ELEMENTOS REST  
      */
-    public function getCountnoticiaAction()
+    public function getCountnoticiainternaAction()
     {
     $em = $this->getDoctrine()->getManager();
     $qb = $em->createQueryBuilder('i');

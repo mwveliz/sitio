@@ -182,7 +182,7 @@ class InformacionController extends Controller
  /**  
 * CONTADOR DE ELEMENTOS REST  
      */
-     public function getCountnoticiaAction()
+     public function getCountinformacionAction()
     {
     $em = $this->getDoctrine()->getManager();
     $qb = $em->createQueryBuilder('i');
