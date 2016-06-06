@@ -19,7 +19,7 @@ class EnteType extends AbstractType
                  'attr' => array('class' =>  'advanced')
              )) */
              
-             ->add('descripcion', 'text', array(
+             ->add('descripcion', 'textarea', array(
                  'label' =>'Descripcion',    
                  'attr' => array('placeholder' => 'Descripcion', 'class'=> 'form-control input-sm ')
              ))  

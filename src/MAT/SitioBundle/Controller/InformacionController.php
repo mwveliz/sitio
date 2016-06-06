@@ -170,9 +170,10 @@ class InformacionController extends Controller
     );
     
     //query para filtrar las visibles y con fecha anterior al dia de hoy (no futura)
-     $results = $em->createQuery('SELECT i FROM SitioBundle:Informacion i'
+         $results = $em->createQuery('SELECT i FROM SitioBundle:Informacion i'
+                           . ' WHERE i.visible=TRUE and i.fechaHora <= :fechadehoy'
                            . ' ORDER BY i.id DESC')
-                    //->setParameters($parameters)
+                    ->setParameters($parameters)
                     ->setFirstResult($pagina)
                     ->setMaxResults(1)
                     ->getResult();            
@@ -190,7 +191,7 @@ class InformacionController extends Controller
         
     );
     
-     $results = $em->createQuery('SELECT i FROM SitioBundle:Noticia i'
+     $results = $em->createQuery('SELECT i FROM SitioBundle:Informacion i'
                            . ' WHERE i.visible=TRUE and i.fechaHora <= :fechadehoy'
                            . ' ORDER BY i.id DESC')
                     ->setParameters($parameters)
