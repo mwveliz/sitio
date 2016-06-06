@@ -3,6 +3,7 @@
 namespace MAT\SitioBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -161,7 +162,7 @@ class BannerController extends Controller
     }
     public function getBannerAction($pagina)
     {
-        $response = new Response();;
+        $response = new Response();
        
     $em = $this->getDoctrine()->getManager();
     $qb = $em->createQueryBuilder('i');
