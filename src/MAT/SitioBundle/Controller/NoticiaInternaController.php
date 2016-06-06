@@ -166,7 +166,7 @@ class NoticiaInternaController extends Controller
       );   
 	  
 	  //query para filtrar las visibles y con fecha anterior al dia de hoy (no futura)
-     $results = $em->createQuery('SELECT i FROM SitioBundle:noticiainterna i'
+     $results = $em->createQuery('SELECT i FROM SitioBundle:Noticiainterna i'
                            . ' ORDER BY i.id DESC')
                     //->setParameters($parameters)
                     ->setFirstResult($pagina)
@@ -186,7 +186,7 @@ class NoticiaInternaController extends Controller
         
     );
     
-     $results = $em->createQuery('SELECT i FROM SitioBundle:Noticia i'
+     $results = $em->createQuery('SELECT i FROM SitioBundle:Noticiainterna i'
                            . ' WHERE i.visible=TRUE and i.fechaHora <= :fechadehoy'
                            . ' ORDER BY i.id DESC')
                     ->setParameters($parameters)
