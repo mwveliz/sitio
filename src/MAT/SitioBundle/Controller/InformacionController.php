@@ -164,6 +164,12 @@ class InformacionController extends Controller
         $response->send();*/
     $em = $this->getDoctrine()->getManager();
     $qb = $em->createQueryBuilder('i');
+	$parameters = array( //parametros para el query
+        'fechadehoy' => new \DateTime(),
+        
+    );
+    
+    //query para filtrar las visibles y con fecha anterior al dia de hoy (no futura)
      $results = $em->createQuery('SELECT i FROM SitioBundle:Informacion i'
                            . ' ORDER BY i.id DESC')
                     //->setParameters($parameters)
@@ -175,12 +181,20 @@ class InformacionController extends Controller
  /**  
 * CONTADOR DE ELEMENTOS REST  
      */
-     public function getCountInformacionAction()
+     public function getCountnoticiaAction()
     {
     $em = $this->getDoctrine()->getManager();
+    $qb = $em->createQueryBuilder('i');
+    $parameters = array( //parametros para el query
+        'fechadehoy' => new \DateTime(),
+        
+    );
     
-     $results = $em->getRepository('SitioBundle:Informacion')->findAll();
-             
+     $results = $em->createQuery('SELECT i FROM SitioBundle:Noticia i'
+                           . ' WHERE i.visible=TRUE and i.fechaHora <= :fechadehoy'
+                           . ' ORDER BY i.id DESC')
+                    ->setParameters($parameters)
+                    ->getResult();            
                return count($results); 
     }
 }

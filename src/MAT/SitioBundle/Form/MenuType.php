@@ -16,15 +16,24 @@ class MenuType extends AbstractType
     {
         $builder
              
-              ->add('descripcion', 'textarea', array(
-                 'attr' => array('class' =>  'advanced')
+               ->add('descripcion', 'textarea', array(
+                 'label' =>'Descripcion',    
+                 'attr' => array('placeholder' => 'Descripcion', 'class'=> 'form-control input-sm ')
+             ))  
+			  ->add('posicion', 'text', array(
+                 'label' =>'Descripcion',    
+                 'attr' => array('placeholder' => 'Posición', 'class'=> 'form-control input-sm ')
+             ))  
+			 
+            ->add('enlace', 'text', array(
+                 'label' =>'Enlace',    
+                 'attr' => array('placeholder' => 'Enlace', 'class'=> 'form-control input-sm ')
              )) 
-            ->add('posicion')
 			
              ->add('visible','checkbox',array(
                  'data' => true,
                 ))
-            ->add('enlace')
+            
         ;
     }
     

@@ -165,5 +165,6 @@ class EstadisticaController extends Controller
                     ->setMaxResults(1)
                     ->getResult();            
                return $results; 
+			   
     }
 }
