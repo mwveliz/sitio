@@ -39,8 +39,9 @@ class EnlaceType extends AbstractType
                          
                         )))
                           
-            ->add('visible','checkbox',array(
-                 'data' => true,
+            ->add('visible','checkbox',array( 
+                'data' => true,
+                'required' => false,
                 
                 ))
                   ->add('idUsuario','hidden',array(

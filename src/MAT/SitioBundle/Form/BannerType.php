@@ -16,11 +16,25 @@ class BannerType extends AbstractType
     {
         $builder
             ->add('rutaBanner', 'file' , array( 
-                'data_class' => null 
+                'data_class' => null,
+                'required' => false,
+
                 ))
-            ->add('rutaFooter', 'file' , array( 'data_class' => null ))
-            ->add('rutaLogo', 'file' , array( 'data_class' => null ))
-            ->add('rutaSplash', 'file' , array( 'data_class' => null ))
+            ->add('rutaFooter', 'file' , array( 
+                'data_class' => null,
+                'required' => false,
+
+                ))
+            ->add('rutaLogo', 'file' , array( 
+                'data_class' => null,
+                'required' => false,
+
+                ))
+            ->add('rutaSplash', 'file' , array( 
+                'data_class' => null,
+                'required' => false,
+                
+                ))
             ->add('fechaHora', 'datetime')
             ->add('visibleSplash')
              ->add('idUsuario','hidden',array(

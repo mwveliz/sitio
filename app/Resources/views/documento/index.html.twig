@@ -28,7 +28,8 @@
                                             <tr>
                                                 <th class="all" width="10%">Detalle</th>
                                                 <th class="all" width="10%">Editar</th>
-                                                <th class="all">Descripcion</th>                                              
+                                                <th class="all">Descripcion</th>
+                                                <th class="all">Fecha</th>                                              
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -49,7 +50,9 @@
                                                     </center>
                                                 </td>
                                             
-                                                <td>{{ documento.descripcion | raw }}</td>                                                
+                                                <td>{{ documento.descripcion | raw }}</td>
+                                                <td>{{ documento.fechahora | date("d/m/Y") }}</td>
+                                                     
                                             </tr>
                                         {% endfor %}
                                         </tbody>                                        

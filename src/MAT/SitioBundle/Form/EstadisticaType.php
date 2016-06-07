@@ -33,7 +33,8 @@ class EstadisticaType extends AbstractType
                         )))
                        
             ->add('visible','checkbox',array(
-                 'data' => true,
+                'data' => true,
+                'required' => false,
                 
                 ))
                  ->add('titulo')

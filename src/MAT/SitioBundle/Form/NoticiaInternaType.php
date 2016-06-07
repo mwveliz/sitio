@@ -35,7 +35,8 @@ class NoticiaInternaType extends AbstractType
                 
                   
             ->add('visible','checkbox',array(
-                 'data' => true,
+                'data' => true,
+                'required' => false,
                 
                 ))
             

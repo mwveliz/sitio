@@ -43,7 +43,7 @@ class DocumentoType extends AbstractType
              )) */           
             ->add('visible','checkbox',array(
                  'data' => true,
-                
+                 'required' => false,                
                 ))
            /* ->add('descripcion')
             ->add('ruta')
