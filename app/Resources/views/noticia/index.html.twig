@@ -29,6 +29,7 @@
                                                 <th class="all" width="10%">Detalle</th>
                                                 <th class="all" width="10%">Editar</th>
                                                 <th class="all">Descripcion</th>                                               
+                                                <th class="all">Fecha</th>                                               
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -50,6 +51,7 @@
                                                 </td>
                                             
                                                 <td>{{ Noticia.descripcion | raw }}</td>                                                
+                                                <td>{{ Noticia.fechahora | date("d/m/Y")}}</td>                                                
                                             </tr>
                                         {% endfor %} 
                                         </tbody>                                        

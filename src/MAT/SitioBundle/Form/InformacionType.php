@@ -34,7 +34,7 @@ class InformacionType extends AbstractType
                
             ->add('visible','checkbox',array(
                  'data' => true,
-                
+                'required' => false,
                 ))
             
         ;

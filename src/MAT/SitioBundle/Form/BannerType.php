@@ -15,7 +15,9 @@ class BannerType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('rutaBanner', 'file' , array( 'data_class' => null ))
+            ->add('rutaBanner', 'file' , array( 
+                'data_class' => null 
+                ))
             ->add('rutaFooter', 'file' , array( 'data_class' => null ))
             ->add('rutaLogo', 'file' , array( 'data_class' => null ))
             ->add('rutaSplash', 'file' , array( 'data_class' => null ))
