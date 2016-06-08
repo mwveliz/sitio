@@ -85,7 +85,7 @@ class UsuarioController extends Controller
     public function editAction(Request $request, Usuario $usuario)
     {
         $deleteForm = $this->createDeleteForm($usuario);
-        $editForm = $this->createForm('MAT\SitioBundle\Form\UsuarioType', $usuario);
+        $editForm = $this->createForm('FOS\UserBundle\Form\UsuarioType', $usuario);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
