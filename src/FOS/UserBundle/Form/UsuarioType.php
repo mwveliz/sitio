@@ -21,7 +21,7 @@ class UsuarioType extends AbstractType
                 'choices' => array('V' => 'V', 'E' => 'E'),
             ))                
             ->add('dni', 'integer', array(
-                'label' => 'DNI',
+                'label' => 'Cédula',
                 'attr' => array('class' => 'form-control input-sm',
                                 'placeholder' => 'Ejemplo: 10456789',
                                 )
@@ -41,7 +41,7 @@ class UsuarioType extends AbstractType
                     )
             )
             ->add('email', 'email', 
-                    array('label' => 'form.email', 
+                    array('label' => 'Correo', 
                         'attr' => array(
                             'class' => 'form-control input-sm'
                         ),
@@ -66,13 +66,13 @@ class UsuarioType extends AbstractType
             )                 
             ->add('username', null, array(
                 'attr' => array('class' => 'form-control input-sm'),
-                'label' => 'form.username', 
+                'label' => 'Usuario', 
                 'translation_domain' => 'FOSUserBundle'))                            
             ->add('plainPassword', 'repeated', array(
                 'type' => 'password',
                 'options' => array('translation_domain' => 'FOSUserBundle'),
-                'first_options' => array('label' => 'form.password','attr' => array('class' => 'form-control input-sm')),
-                'second_options' => array('label' => 'form.password_confirmation','attr' => array('class' => 'form-control input-sm'),),
+                'first_options' => array('label' => 'Clave','attr' => array('class' => 'form-control input-sm')),
+                'second_options' => array('label' => 'Confirmacion clave','attr' => array('class' => 'form-control input-sm'),),
                 'invalid_message' => 'fos_user.password.mismatch',
             )) 
             /*->add('enabled', 'checkbox', array(
