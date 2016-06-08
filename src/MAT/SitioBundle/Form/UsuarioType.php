@@ -26,18 +26,18 @@ class UsuarioType extends AbstractType
             ->add('email')
             ->add('emailCanonical')
             ->add('enabled')
-            ->add('salt')
+        // ->add('salt',array('mapped'=>false))
             ->add('password')
             ->add('lastLogin', 'datetime')
             ->add('locked')
             ->add('expired')
-            ->add('expiresAt', 'datetime')
-            ->add('confirmationToken')
+          //  ->add('expiresAt', 'datetime')
+         //   ->add('confirmationToken')
             ->add('passwordRequestedAt', 'datetime')
             ->add('roles')
             ->add('credentialsExpired')
-            ->add('credentialsExpireAt', 'datetime')
-            ->add('group')
+         //   ->add('credentialsExpireAt', 'datetime')
+         //   ->add('group')
         ;
     }
     
@@ -49,5 +49,9 @@ class UsuarioType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => 'MAT\SitioBundle\Entity\Usuario'
         ));
+    }
+     public function getName()
+    {
+        return 'mat_sitiobundle_usuario';
     }
 }

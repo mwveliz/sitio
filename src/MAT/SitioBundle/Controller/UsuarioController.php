@@ -42,7 +42,8 @@ class UsuarioController extends Controller
     public function newAction(Request $request)
     {
         $usuario = new Usuario();
-        $form = $this->createForm('MAT\SitioBundle\Form\UsuarioType', $usuario);
+      //  $form = $this->createForm('MAT\SitioBundle\Form\UsuarioType', $usuario);
+        $form = $this->createForm('FOS\UserBundle\Form\UsuarioType', $usuario);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

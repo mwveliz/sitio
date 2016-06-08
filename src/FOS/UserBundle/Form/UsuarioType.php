@@ -1,6 +1,6 @@
 <?php
 
-namespace AVN\SiretraBundle\Form;
+namespace FOS\UserBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -75,14 +75,14 @@ class UsuarioType extends AbstractType
                 'second_options' => array('label' => 'form.password_confirmation','attr' => array('class' => 'form-control input-sm'),),
                 'invalid_message' => 'fos_user.password.mismatch',
             )) 
-            ->add('enabled', 'checkbox', array(
+            /*->add('enabled', 'checkbox', array(
                 'label' => '¿Se encuentra Activo?',
                 'attr' => array(
                     'class' => 'checkbox'
                 ),
                 'required' => false,
                 'data' => true,
-            ));    
+            ));*/    
         ;
     }
     
@@ -92,7 +92,7 @@ class UsuarioType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'SGI\BlBundle\Entity\Usuario'
+            'data_class' => 'MAT\SitioBundle\Entity\Usuario'
         ));
     }
 

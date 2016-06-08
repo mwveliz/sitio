@@ -87,6 +87,7 @@ class Usuario extends BaseUser
      * @param integer $dni
      * @return Usuario
      */
+
     public function setDni($dni)
     {
         $this->dni = $dni;
@@ -228,6 +229,11 @@ class Usuario extends BaseUser
     public function getId()
     {
         return $this->id;
+    }
+    
+     public function getParent()
+    {
+        return 'FOSUserBundle';
     }
     
       public function __toString()
