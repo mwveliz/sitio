@@ -165,7 +165,7 @@ class DocumentoController extends Controller
         
     );
     //query para filtrar las visibles y con fecha anterior al dia de hoy (no futura) 
-     $results = $em->createQuery('SELECT i FROM SitioBundle:documento i'
+     $results = $em->createQuery('SELECT i FROM SitioBundle:Documento i'
                            . ' ORDER BY i.id DESC')
                     //->setParameters($parameters)
                     ->setFirstResult($pagina)
