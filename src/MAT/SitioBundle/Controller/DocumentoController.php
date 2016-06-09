@@ -50,7 +50,7 @@ class DocumentoController extends Controller
         	//die(var_dump($_FILES));
                         $temporal=$_FILES['documento']['tmp_name']['ruta'];
                         $nombre_odt=$_FILES['documento']['name']['ruta'];
-                        move_uploaded_file($temporal, $this->get('kernel')->getRootDir().'/../web/imagenes/'.$nombre_odt);
+                        move_uploaded_file($temporal, $this->get('kernel')->getRootDir().'/../web/upload/'.$nombre_odt);
                     $em = $this->getDoctrine()->getManager();
                     $documento->setRuta($nombre_odt); //nombre original
             $em->persist($documento);
