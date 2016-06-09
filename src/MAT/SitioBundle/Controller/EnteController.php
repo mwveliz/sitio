@@ -152,15 +152,12 @@ class EnteController extends Controller
         $response->send();*/
     $em = $this->getDoctrine()->getManager();
     $qb = $em->createQueryBuilder('i');
-	 $parameters = array( //parametros para el query
-        'fechadehoy' => new \DateTime(),
-      );   
 	  
 	  //query para filtrar las visibles y con fecha anterior al dia de hoy (no futura)
         $results = $em->createQuery('SELECT i FROM SitioBundle:ente i'
-                           . ' WHERE i.visible=TRUE and i.fechaHora <= :fechadehoy'
+                           . ' WHERE i.visible=TRUE'
                            . ' ORDER BY i.id DESC')
-                    ->setParameters($parameters)
+                    //->setParameters($parameters)
                     //->setFirstResult($pagina)
                     //->setMaxResults(1)
                     ->getResult();            
