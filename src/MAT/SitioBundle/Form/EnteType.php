@@ -27,7 +27,7 @@ class EnteType extends AbstractType
             
             ->add('enlace', 'text', array(
                  'label' =>'Enlace',    
-                 'attr' => array('placeholder' => 'Enlace', 'class'=> 'form-control input-sm ')
+                 'attr' => array('placeholder' => 'Enlace tipo http:// que lleva al sitio web del ente', 'class'=> 'form-control input-md ')
              )) 
         ;
     }
