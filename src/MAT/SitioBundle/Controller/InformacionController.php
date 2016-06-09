@@ -152,7 +152,14 @@ class InformacionController extends Controller
         ;
     }
     
-   /**
+  
+    
+    
+    
+    
+    
+    
+    /**
      * Informaciones REST solo buscando una pagina 
      */
      public function getInformacionAction($pagina)
@@ -172,7 +179,7 @@ class InformacionController extends Controller
     //query para filtrar las visibles y con fecha anterior al dia de hoy (no futura)
          $results = $em->createQuery('SELECT i FROM SitioBundle:Informacion i'
                            . ' WHERE i.visible=TRUE and i.fechaHora <= :fechadehoy'
-                           . ' ORDER BY i.id DESC')
+                           . ' ORDER BY i.id ASC')
                     ->setParameters($parameters)
                     ->setFirstResult($pagina)
                     ->setMaxResults(1)
