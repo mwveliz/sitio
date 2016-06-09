@@ -161,8 +161,8 @@ class EnteController extends Controller
                            . ' WHERE i.visible=TRUE and i.fechaHora <= :fechadehoy'
                            . ' ORDER BY i.id DESC')
                     ->setParameters($parameters)
-                    ->setFirstResult($pagina)
-                    ->setMaxResults(1)
+                    //->setFirstResult($pagina)
+                    //->setMaxResults(1)
                     ->getResult();            
                return $results; 
     }
