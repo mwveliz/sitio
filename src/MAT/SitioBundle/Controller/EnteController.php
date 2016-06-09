@@ -155,8 +155,7 @@ class EnteController extends Controller
 	  
 	  //query para filtrar las visibles y con fecha anterior al dia de hoy (no futura)
         $results = $em->createQuery('SELECT i FROM SitioBundle:ente i'
-                           . ' WHERE i.visible=TRUE'
-                           . ' ORDER BY i.id DESC')
+                                . ' ORDER BY i.id ASC')
                     //->setParameters($parameters)
                     //->setFirstResult($pagina)
                     //->setMaxResults(1)
