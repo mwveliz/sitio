@@ -3,6 +3,7 @@
 namespace MAT\SitioBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -151,7 +152,7 @@ class DocumentoController extends Controller
      */
      public function getDocumentoAction($pagina)
     {
-        $response = new Response();;
+        $response = new Response();
         /*$response->headers->set('Access-Control-Allow-Headers', 'origin, content-type, accept');
         $response->headers->set('Access-Control-Allow-Origin', '*');
         $response->headers->set('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, PATCH, OPTIONS');
@@ -168,7 +169,7 @@ class DocumentoController extends Controller
                            . ' ORDER BY i.id DESC')
                     //->setParameters($parameters)
                     ->setFirstResult($pagina)
-                    ->setMaxResults(1)
+                    ->setMaxResults(20)
                     ->getResult();            
                return $results; 
     }
