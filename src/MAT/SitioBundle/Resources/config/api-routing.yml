@@ -17,7 +17,12 @@ mat_api_video:
     type: rest
     resource: "@SitioBundle/Controller/VideoController.php"
     name_prefix:  api_video_    
-        
+
+mat_api_ente:
+    type: rest
+    resource: "@SitioBundle/Controller/EnteController.php"
+    name_prefix:  api_ente_    
+            
 mat_api_enlace:
     type: rest
     resource: "@SitioBundle/Controller/EnlaceController.php"
