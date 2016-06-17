@@ -252,9 +252,9 @@ class Posicion
      * @param \MAT\SitioBundle\Entity\ImagenNoticiainterna $idNoticiainterna
      * @return Posicion
      */
-    public function setIdNoticiainterna(\MAT\SitioBundle\Entity\ImagenNoticiainterna $idNoticiainterna = null)
+    public function setIdNoticianterna(\MAT\SitioBundle\Entity\Noticiainterna $idNoticiaInterna = null)
     {
-        $this->idNoticiainterna = $idNoticiainterna;
+        $this->idNoticiainterna = $idNoticiaInterna;
 
         return $this;
     }
@@ -266,7 +266,7 @@ class Posicion
      */
     public function getIdNoticiainterna()
     {
-        return $this->idNoticiainterna;
+        return $this->idNoticiaInterna;
     }
 
     /**
