@@ -145,28 +145,29 @@ class VideoController extends Controller
             ->getForm()
         ;
     }
-       public function getVideoAction($pagina)
+        public function getVideoAction($pagina)
     {
         //$response = new Response();;
-        
+
     $em = $this->getDoctrine()->getManager();
     $qb = $em->createQueryBuilder('i');
 	$parameters = array( //parametros para el query
         'fechadehoy' => new \DateTime(),
-        
+
     );
-    
+
     //query para filtrar las visibles y con fecha anterior al dia de hoy (no futura)
      $results = $em->createQuery('SELECT i FROM SitioBundle:Video i'
-                           . ' ORDER BY i.id DESC')
-                    //->setParameters($parameters)
+                            . ' WHERE i.visible=TRUE and i.fechaHora <= :fechadehoy'
+                            . ' ORDER BY i.id DESC')
+                    ->setParameters($parameters)
                     ->setFirstResult($pagina)
                     ->setMaxResults(1)
-                    ->getResult();            
-               return $results; 
+                    ->getResult();
+               return $results;
     }
     /**
-     * CONTADOR DE ELEMENTOS REST  
+     * CONTADOR DE ELEMENTOS REST
      */
      public function getCountvideoAction()
     {
@@ -174,15 +175,15 @@ class VideoController extends Controller
      $qb = $em->createQueryBuilder('i');
     $parameters = array( //parametros para el query
         'fechadehoy' => new \DateTime(),
-        
+
     );
-    
+
      $results = $em->createQuery('SELECT i FROM SitioBundle:Video i'
                            . ' WHERE i.visible=TRUE and i.fechaHora <= :fechadehoy'
                            . ' ORDER BY i.id DESC')
                     ->setParameters($parameters)
-                    ->getResult();            
-               return count($results); 
+                    ->getResult();
+               return count($results);
     }
 }
 

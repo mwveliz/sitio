@@ -16,46 +16,50 @@ class VideoType extends AbstractType
     {
         $builder
             ->add('descripcion', 'textarea', array(
-                 'label' =>'Descripción',    
+                 'label' =>'Descripción',
                  'attr' => array('placeholder' => 'Descripción', 'class'=> 'form-control input-sm ')
              ))
-         
-            
-            
+
 			->add('titulo', 'text', array(
-                 'label' =>'Titulo',    
+                 'label' =>'Titulo',
                  'attr' => array('placeholder' => 'Ingrese titulo', 'class'=> 'form-control input-sm ')
              ))
-            
+
 			->add('autor', 'text', array(
-                 'label' =>'Autor',    
+                 'label' =>'Autor',
                  'attr' => array('placeholder' => 'Ingrese autor', 'class'=> 'form-control input-sm ')
              ))
-            ->add('ruta', 'file')
-			  ->add('fechaHora', 'date', array(
-                         'data' =>  new \DateTime(),
-                        'label' => 'Fecha ',
-                        'widget' => 'single_text',
-                        'format' => 'dd-MM-yyyy',
-                        'attr' => array(
-                        'class' => 'form-control input-inline datepicker',
-                        'data-provide' => 'datepicker',
-                        'data-date-format' => 'dd-mm-yyyy',
-                        'locale' => 'es',
-                         
+
+            /*->add('ruta', 'file',array(
+                'required' => false,
+
+                ))
+            */
+
+            ->add('fechaHora', 'date', array(
+                     'data' =>  new \DateTime(),
+                    'label' => 'Fecha ',
+                    'widget' => 'single_text',
+                    'format' => 'dd-MM-yyyy',
+                    'attr' => array(
+                    'class' => 'form-control input-inline datepicker',
+                    'data-provide' => 'datepicker',
+                    'data-date-format' => 'dd-mm-yyyy',
+                    'locale' => 'es',
+
                         )))
 			->add('visible','checkbox',array(
                 'data' => true,
                 'required' => false,
-                
+
                 ))
-            
+
            /* ->add('idUsuario','hidden',array(
-                  
+
              )) */
         ;
     }
-    
+
     /**
      * @param OptionsResolver $resolver
      */

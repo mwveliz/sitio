@@ -150,19 +150,19 @@ class NoticiaController extends Controller
             ->getForm()
         ;
     }
-     
+
    /**
-     * Informaciones REST solo buscando una pagina 
+     * Informaciones REST solo buscando una pagina
      */
-     public function getNoticiaAction($pagina)
+        public function getNoticiaAction($pagina)
     {
     $em = $this->getDoctrine()->getManager();
     $qb = $em->createQueryBuilder('i');
     $parameters = array( //parametros para el query
         'fechadehoy' => new \DateTime(),
-        
+
     );
-    
+
     //query para filtrar las visibles y con fecha anterior al dia de hoy (no futura)
      $results = $em->createQuery('SELECT i FROM SitioBundle:Noticia i'
                            . ' WHERE i.visible=TRUE and i.fechaHora <= :fechadehoy'
@@ -170,11 +170,11 @@ class NoticiaController extends Controller
                     ->setParameters($parameters)
                     ->setFirstResult($pagina)
                     ->setMaxResults(1)
-                    ->getResult();            
-               return $results; 
+                    ->getResult();
+               return $results;
     }
  /**
-     * CONTADOR DE ELEMENTOS REST  
+     * CONTADOR DE ELEMENTOS REST
      */
      public function getCountnoticiaAction()
     {
@@ -182,15 +182,15 @@ class NoticiaController extends Controller
     $qb = $em->createQueryBuilder('i');
     $parameters = array( //parametros para el query
         'fechadehoy' => new \DateTime(),
-        
+
     );
-    
+
      $results = $em->createQuery('SELECT i FROM SitioBundle:Noticia i'
                            . ' WHERE i.visible=TRUE and i.fechaHora <= :fechadehoy'
                            . ' ORDER BY i.id DESC')
                     ->setParameters($parameters)
-                    ->getResult();            
-               return count($results); 
+                    ->getResult();
+               return count($results);
     }
 }
 
